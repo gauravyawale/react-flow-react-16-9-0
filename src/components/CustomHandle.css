@@ -1,0 +1,137 @@
+.left-custom-handle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+  position: absolute;
+  left: 0px; /* Adjust the value based on desired position */
+  top: 50%; /* Adjust the value based on desired position */
+  transform: translateY(-50%);
+}
+
+.left-handle-container {
+  display: flex;
+  align-items: center;
+}
+
+.left-handle-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
+  margin-left: -22px;
+}
+.right-handle-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: -40px;
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+
+.right-custom-handle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 4px;
+  position: absolute;
+  right: 0px; /* Adjust the value based on desired position */
+  top: 50%; /* Adjust the value based on desired position */
+  transform: translateY(-50%);
+}
+
+.right-handle-container {
+  display: flex;
+  align-items: center;
+}
+
+.handle-name-left {
+  position: absolute;
+  left: 6px;
+  font-weight: bold;
+  font-size: 6px;
+}
+.handle-name-right {
+  position: absolute;
+  right: 6px;
+  font-weight: bold;
+  font-size: 6px;
+}
+
+.handle-value-right {
+  margin-top: 2px;
+  font-size: 6px;
+}
+
+.handle-value-left {
+  margin-top: 2px;
+  font-size: 6px;
+}
+.handle-data-type,
+.right-handle-data-type {
+  font-size: 6px;
+  color: #888;
+}
+
+/* Customize the shape of the handle */
+.react-flow__handle {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+}
+
+/* Additional styling for the left handle */
+.left-handle-container .react-flow__handle {
+  /* margin-right: 8px; */
+  border: 1px solid #888;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+}
+
+/* Additional styling for the right handle */
+.right-handle-container .react-flow__handle {
+  /* margin-left: -20px; */
+  border: 1px solid #888;
+  position: absolute;
+  top: 50%;
+  left: 28px;
+}
+
+.right-handle-container .react-flow__handle::before {
+  content: "";
+  position: absolute;
+  top: 0.5px; /* Adjust the value based on desired line position */
+  right: 3px; /* Adjust the value based on desired line position */
+  width: 32px;
+  height: 10px; /* Adjust the value based on desired line length */
+  border-top: 1px solid #888; /* Adjust the line color and style */
+}
+
+.left-handle-container .react-flow__handle::before {
+  content: "";
+  position: absolute;
+  top: 0.5px; /* Adjust the value based on desired line position */
+  left: 1px; /* Adjust the value based on desired line position */
+  width: 32px;
+  height: 10px; /* Adjust the value based on desired line length */
+  border-top: 1px solid #888; /* Adjust the line color and style */
+}
+
+.right-handle-container .handle-publish-right {
+  width: 3px;
+  height: 8px;
+  position: absolute;
+  top: 4px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.left-handle-container .handle-publish-left {
+  width: 3px;
+  height: 8px;
+  position: absolute;
+  right: 0px;
+  top: 3px;
+  cursor: pointer;
+  z-index: 1;
+}
