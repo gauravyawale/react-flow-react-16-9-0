@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Handle } from "react-flow-renderer";
 import "./CustomHandle.css";
+import { ReactComponent as AlarmActiveIcon } from "../icons/alarmActive.svg";
+import { ReactComponent as AlarmInactiveIcon } from "../icons/alarmInactive.svg";
 
-const LeftCustomHandle = ({ handle, topPos }) => {
+const LeftCustomHandle = React.memo(({ handle, topPos }) => {
   const {
     inputName,
     initalValue,
@@ -51,9 +53,9 @@ const LeftCustomHandle = ({ handle, topPos }) => {
       </div>
     </div>
   );
-};
+});
 
-const RightCustomHandle = ({ handle, topPos }) => {
+const RightCustomHandle = React.memo(({ handle, topPos }) => {
   const { outputName, dataType, id, isPublished, isAlarmOutput, isAlarmOn } =
     handle;
   const [isPublish, setIsPublish] = useState(false);
@@ -62,10 +64,20 @@ const RightCustomHandle = ({ handle, topPos }) => {
   const handlePublishRightClick = () => {
     setIsPublish(!isPublish);
   };
-
+  console.log("i am right click");
   return (
     <div className="right-custom-handle" style={{ top: topPos }}>
-      <div className="handle-name-right">{outputName}</div>
+      <div className="handle-name-right">
+        {isAlarmOutput ? (
+          isAlarmOn ? (
+            <AlarmActiveIcon />
+          ) : (
+            <AlarmInactiveIcon />
+          )
+        ) : (
+          outputName
+        )}
+      </div>
       <div className="right-handle-container">
         <div
           className="handle-publish-right"
@@ -88,6 +100,6 @@ const RightCustomHandle = ({ handle, topPos }) => {
       </div>
     </div>
   );
-};
+});
 
 export { LeftCustomHandle, RightCustomHandle };

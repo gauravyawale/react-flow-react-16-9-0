@@ -24,19 +24,19 @@ const App = () => {
   const [edges, setEdges] = useState([]);
   const edgeUpdateSuccessful = useRef(true);
 
-  // useEffect(() => {
-  //   // Retrieve nodes and edges data from localStorage when component mounts
-  //   const nodesData = localStorage.getItem("nodesData");
-  //   const edgesData = localStorage.getItem("edgesData");
-  //   if (nodesData?.length) setNodes(JSON.parse(nodesData));
-  //   if (edgesData?.length) setEdges(JSON.parse(edgesData));
-  // }, []);
+  useEffect(() => {
+    // Retrieve nodes and edges data from localStorage when component mounts
+    const nodesData = localStorage.getItem("nodesData");
+    const edgesData = localStorage.getItem("edgesData");
+    if (nodesData?.length) setNodes(JSON.parse(nodesData));
+    if (edgesData?.length) setEdges(JSON.parse(edgesData));
+  }, []);
 
-  // useEffect(() => {
-  //   // Store nodes and edges data in localStorage when it changes
-  //   if (nodes?.length) localStorage.setItem("nodesData", JSON.stringify(nodes));
-  //   if (edges?.length) localStorage.setItem("edgesData", JSON.stringify(edges));
-  // }, [nodes, edges]);
+  useEffect(() => {
+    // Store nodes and edges data in localStorage when it changes
+    if (nodes?.length) localStorage.setItem("nodesData", JSON.stringify(nodes));
+    if (edges?.length) localStorage.setItem("edgesData", JSON.stringify(edges));
+  }, [nodes, edges]);
 
   const onNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
@@ -47,38 +47,17 @@ const App = () => {
     [setEdges]
   );
 
-  const getAvailablePosition = (x, y) => {
-    const nodeSize = 145; // Adjust this value based on your node size
-    const padding = 10; // Adjust this value based on desired padding
+  const getAvailablePosition = useCallback(
+    (x, y) => {
+      // Function to calculate available position for a new node
+      const nodeSize = 145; // Adjust this value based on your node size
+      const padding = 10; // Adjust this value based on desired padding
 
-    let newX = x;
-    let newY = y;
+      let newX = x;
+      let newY = y;
 
-    // Check if the new position overlaps with any existing nodes
-    let overlap = false;
-    nodes.forEach((node) => {
-      const nodeX = node.position.x;
-      const nodeY = node.position.y;
-      const width = nodeSize;
-      const height =
-        node.data?.output?.length * HANDLE_SPACING + HANDLE_SPACING;
-
-      if (
-        newX + nodeSize + padding > nodeX &&
-        newX < nodeX + width + padding &&
-        newY + height + padding > nodeY &&
-        newY < nodeY + height + padding
-      ) {
-        overlap = true;
-      }
-    });
-
-    // If overlap, find a new position
-    while (overlap) {
-      newX += nodeSize + padding;
-
-      overlap = false;
-      // eslint-disable-next-line no-loop-func
+      // Check if the new position overlaps with any existing nodes
+      let overlap = false;
       nodes.forEach((node) => {
         const nodeX = node.position.x;
         const nodeY = node.position.y;
@@ -95,10 +74,34 @@ const App = () => {
           overlap = true;
         }
       });
-    }
 
-    return { x: newX, y: newY };
-  };
+      // If overlap, find a new position
+      while (overlap) {
+        newX += nodeSize + padding;
+
+        overlap = false;
+        nodes.forEach((node) => {
+          const nodeX = node.position.x;
+          const nodeY = node.position.y;
+          const width = nodeSize;
+          const height =
+            node.data?.output?.length * HANDLE_SPACING + HANDLE_SPACING;
+
+          if (
+            newX + nodeSize + padding > nodeX &&
+            newX < nodeX + width + padding &&
+            newY + height + padding > nodeY &&
+            newY < nodeY + height + padding
+          ) {
+            overlap = true;
+          }
+        });
+      }
+
+      return { x: newX, y: newY };
+    },
+    [nodes]
+  );
 
   const addNode = useCallback(
     (newNode, isDumpData) => {
@@ -113,9 +116,9 @@ const App = () => {
         setNodes((prevNodes) => [...prevNodes, newNode]);
       }
     },
-    [setNodes, nodes.length]
+    [setNodes, getAvailablePosition]
   );
-  //on connecting edges, check the type of egdes, connect only if type is matching
+
   const onConnect = useCallback(
     (params) => {
       const { source, target, sourceHandle, targetHandle } = params;
@@ -156,11 +159,10 @@ const App = () => {
     [nodes, edges]
   );
 
-  //update the edges
-  // gets called after end of edge gets dragged to another source or target
   const onEdgeUpdateStart = useCallback(() => {
     edgeUpdateSuccessful.current = false;
   }, []);
+
   const onEdgeUpdate = useCallback(
     (oldEdge, newConnection) => {
       const sourceNode = nodes.find((node) => node.id === newConnection.source);
@@ -199,41 +201,42 @@ const App = () => {
     edgeUpdateSuccessful.current = true;
   }, []);
 
-  //avoid overlap on node movement
-  const onNodeDragStop = (event, node) => {
-    const { x, y } = node.position;
-    const nodeSize = 145; // Adjust this value based on your node size
-    const padding = 10; // Adjust this value based on desired padding
+  const onNodeDragStop = useCallback(
+    (event, node) => {
+      const { x, y } = node.position;
+      const nodeSize = 145; // Adjust this value based on your node size
+      const padding = 10; // Adjust this value based on desired padding
 
-    let newX = x;
-    let newY = y;
+      let newX = x;
+      let newY = y;
 
-    // Check if the dragged node overlaps with any other nodes
-    let overlap = false;
-    nodes.forEach((otherNode) => {
-      if (otherNode.id !== node.id) {
-        const nodeX = otherNode.position.x;
-        const nodeY = otherNode.position.y;
-        const width = nodeSize;
-        const height =
-          otherNode.data?.output?.length * HANDLE_SPACING + HANDLE_SPACING;
+      // Check if the dragged node overlaps with any other nodes
+      let overlap = false;
+      nodes.forEach((otherNode) => {
+        if (otherNode.id !== node.id) {
+          const nodeX = otherNode.position.x;
+          const nodeY = otherNode.position.y;
+          const width = nodeSize;
+          const height =
+            otherNode.data?.output?.length * HANDLE_SPACING + HANDLE_SPACING;
 
-        if (
-          newX + nodeSize + padding > nodeX &&
-          newX < nodeX + width + padding &&
-          newY + height + padding > nodeY &&
-          newY < nodeY + height + padding
-        ) {
-          overlap = true;
+          if (
+            newX + nodeSize + padding > nodeX &&
+            newX < nodeX + width + padding &&
+            newY + height + padding > nodeY &&
+            newY < nodeY + height + padding
+          ) {
+            overlap = true;
+          }
         }
-      }
-    });
+      });
 
-    // If overlap, find a new position for the node
-    if (overlap) {
-      const availablePosition = getAvailablePosition(x, y);
-      newX = availablePosition.x;
-      newY = availablePosition.y;
+      // If overlap, find a new position for the node
+      if (overlap) {
+        const availablePosition = getAvailablePosition(x, y);
+        newX = availablePosition.x;
+        newY = availablePosition.y;
+      }
 
       // Update the node's position in the state
       setNodes((prevNodes) =>
@@ -241,13 +244,24 @@ const App = () => {
           n.id === node.id ? { ...n, position: { x: newX, y: newY } } : n
         )
       );
-    }
-  };
+    },
+    [nodes, getAvailablePosition]
+  );
 
-  const handleDeleteNode = (nodeId) => {
-    const filteredNodes = nodes.filter((node) => node.id !== nodeId);
-    setNodes(filteredNodes);
-  };
+  const handleDeleteNode = useCallback((nodeId) => {
+    setNodes((prevNodes) => prevNodes.filter((node) => node.id !== nodeId));
+  }, []);
+
+  const handleNodeOutputData = useCallback((nodeId, newData) => {
+    setNodes((prevNodes) =>
+      prevNodes.map((node) => {
+        if (node.id === nodeId) {
+          return { ...node, data: { ...node.data, output: newData } };
+        }
+        return node;
+      })
+    );
+  }, []);
 
   return (
     <div className="main-container">
@@ -268,14 +282,12 @@ const App = () => {
               edges={edges}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
-              // onConnect={onConnect}
               nodeTypes={nodeTypes}
-              // edgeTypes={edgeTypes}
+              onConnect={onConnect}
               onEdgeUpdateEnd={onEdgeUpdateEnd}
               onEdgeUpdate={onEdgeUpdate}
               fitView
               attributionPosition="bottom-left"
-              onConnect={onConnect}
               onNodeDragStop={onNodeDragStop}
               onEdgeUpdateStart={onEdgeUpdateStart}
             >
@@ -288,7 +300,6 @@ const App = () => {
               />
             </ReactFlow>
           )}
-          {/* <button onClick={addNode}>Add Node</button> */}
         </div>
       </div>
     </div>
