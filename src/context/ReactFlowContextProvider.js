@@ -288,29 +288,33 @@ export const ReactFlowContextProvider = ({ children }) => {
           if (nodeId === edge.target) {
             return {
               ...edge,
+              data: { ...edge.data, actualTragetId: edge.targetHandle },
               targetHandle: collapsedNode?.data?.tempIdInput,
             };
           } else if (nodeId === edge.source) {
             return {
               ...edge,
+              data: { ...edge.data, actualSourceId: edge.sourceHandle },
               sourceHandle: collapsedNode?.data?.tempIdOutput,
             };
           } else {
-            return edge;
+            return { ...edge, data: edge.data };
           }
         } else {
           if (nodeId === edge.target) {
             return {
               ...edge,
-              targetHandle: collapsedNode?.data?.tempIdInput,
+              targetHandle: edge.data.actualTragetId,
+              data: edge.data,
             };
           } else if (nodeId === edge.source) {
             return {
               ...edge,
-              sourceHandle: collapsedNode?.data?.tempIdOutput,
+              sourceHandle: edge.data.actualSourceId,
+              data: edge.data,
             };
           } else {
-            return edge;
+            return { ...edge, data: edge.data };
           }
         }
       });
