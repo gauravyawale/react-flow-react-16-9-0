@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 // import { NodeResizer } from "react-flow-renderer";
 import "./CustomNode.css";
 import { LeftCustomHandle, RightCustomHandle } from "./CustomHandle";
 import { calculateHandlePosition } from "./constants";
 import { ReactComponent as SettingsIcon } from "../icons/settings.svg";
 import { ReactComponent as UpdateIcon } from "../icons/update.svg";
+import { ReactComponent as CollapseIcon } from "../icons/collapse.svg";
+import { ReactComponent as ExpandIcon } from "../icons/expand.svg";
 import { Handle } from "react-flow-renderer";
+import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
 const CustomNode = React.memo((props) => {
-  const { data } = props;
+  const { data, id } = props;
+  const { handleCollapseExapnd } = useContext(ReactFlowContext);
   return (
     <>
       {/* <NodeResizer
@@ -31,7 +35,7 @@ const CustomNode = React.memo((props) => {
             borderRadius: 50,
             borderColor: "orange",
           }}
-          // id={id}
+          id={data?.tempIdInput}
         />
       ) : (
         data?.input.map((input, idx) => {
@@ -51,7 +55,7 @@ const CustomNode = React.memo((props) => {
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
-          marginTop: "-8px",
+          marginTop: "-12px",
         }}
       >
         <div
@@ -62,6 +66,12 @@ const CustomNode = React.memo((props) => {
           {data?.label}
         </div>
         <SettingsIcon />
+        <div
+          onClick={() => handleCollapseExapnd(id, !data?.isCollapsed)}
+          style={{ cursor: "pointer" }}
+        >
+          {data?.isCollapsed ? <ExpandIcon /> : <CollapseIcon />}
+        </div>
       </div>
       {false && (
         <div
@@ -85,7 +95,7 @@ const CustomNode = React.memo((props) => {
             borderRadius: 50,
             borderColor: "orange",
           }}
-          // id={id}
+          id={data?.tempIdOutput}
         />
       ) : (
         data?.output.map((output, idx) => {
@@ -93,6 +103,7 @@ const CustomNode = React.memo((props) => {
             <RightCustomHandle
               handle={output}
               key={output.id}
+              nodeId={id}
               topPos={calculateHandlePosition(idx, data?.output?.length)}
             />
           );

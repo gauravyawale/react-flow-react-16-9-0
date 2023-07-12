@@ -1,0 +1,562 @@
+{
+  "assetData": [
+    {
+      "assetRef": "abb.local.ACS5000AD_Trigger_Type_Beta1.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@2",
+      "assetVersion": "2.0.0",
+      "assetName": "ACS5000AD_Trigger_Beta1",
+      "assetDescription": "",
+      "nodeId": "ACS5000AD_Trigger_Beta1_0",
+      "position": {
+        "x": 795.5,
+        "y": 68
+      },
+      "scale": 1,
+      "isOpen": false,
+      "inputs": [
+        {
+          "name": "ACU_ALARMWORD1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_ALARMWORD1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_ALARMWORD1",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "ACU_ALARMWORD2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_ALARMWORD2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_ALARMWORD2",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "ACU_FAULTWORD1_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_FAULTWORD1_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_FAULTWORD1_FC1",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "ACU_FAULTWORD1_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_FAULTWORD1_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_FAULTWORD1_FC2",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "ACU_FAULTWORD2_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_FAULTWORD2_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_FAULTWORD2_FC1",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "AlarmWord_CntrlHardware",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_CntrlHardware",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_CntrlHardware",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "AlarmWord_Communication",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_Communication",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_Communication",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "AlarmWord_Current",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_Current",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_Current",
+          "dataType": "integer",
+          "connected": true
+        },
+        {
+          "name": "AlarmWord_OtherAlarm",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_OtherAlarm",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_OtherAlarm",
+          "dataType": "integer",
+          "connected": true,
+          "defaultValue": "0"
+        },
+        {
+          "name": "AlarmWord_ShortCircuit",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_ShortCircuit",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_ShortCircuit",
+          "dataType": "integer",
+          "connected": true,
+          "defaultValue": "0"
+        },
+        {
+          "name": "AlarmWord_SpeedPosition",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_SpeedPosition",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_SpeedPosition",
+          "dataType": "integer",
+          "connected": true,
+          "defaultValue": "0"
+        },
+        {
+          "name": "AlarmWord1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord1",
+          "dataType": "integer",
+          "connected": true,
+          "defaultValue": "0"
+        },
+        {
+          "name": "AlarmWord10",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord10",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord10",
+          "dataType": "integer",
+          "connected": true,
+          "defaultValue": "0"
+        },
+        {
+          "name": "AlarmWord11",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord11",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord11",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord12",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord12",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord12",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord15",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord15",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord15",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord17",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord17",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord17",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord19",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord19",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord19",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord2_CntrlHardware",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord2_CntrlHardware",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord2_CntrlHardware",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord20",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord20",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord20",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord21",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord21",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord21",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord3",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord3",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord3",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord4",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord4",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord4",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord5",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord5",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord5",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord6",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord6",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord6",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord7",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord7",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord7",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord8",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord8",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord8",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "AlarmWord9",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord9",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord9",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_CntrlHardware",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_CntrlHardware",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_CntrlHardware",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_Communication",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Communication",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Communication",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_Current",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Current",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Current",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_DC_LinkVolt",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_DC_LinkVolt",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_DC_LinkVolt",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_Generic_Faults",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Generic_Faults",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Generic_Faults",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_Network",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Network",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Network",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_Other_Fault",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Other_Fault",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Other_Fault",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_ShortCircuit",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_ShortCircuit",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_ShortCircuit",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_SpeedPosition",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_SpeedPosition",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_SpeedPosition",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord_Switching",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Switching",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Switching",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_DC_LinkVolt",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_DC_LinkVolt",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_DC_LinkVolt",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_FC2HIP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC2HIP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC2HIP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_FC2LOP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC2LOP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC2LOP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_Generic_Faults",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_Generic_Faults",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_Generic_Faults",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_Switching",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_Switching",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_Switching",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord1_WithDefect_FC1D",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_WithDefect_FC1D",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_WithDefect_FC1D",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord10_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord10_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord10_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_CntrlHardware",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_CntrlHardware",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_CntrlHardware",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_Current",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_Current",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_Current",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_DC_LinkVolt",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_DC_LinkVolt",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_DC_LinkVolt",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_FC2HIP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC2HIP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC2HIP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord2_FC2LOP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC2LOP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC2LOP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord3_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord3_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord3_FC2HIP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC2HIP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC2HIP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord3_FC2LOP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC2LOP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC2LOP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord4_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord4_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord4_FC2HIP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC2HIP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC2HIP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord4_FC2LOP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC2LOP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC2LOP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord5_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord5_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord5_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord5_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord5_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord5_FC2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord5_FC2LOP",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord5_FC2LOP",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord5_FC2LOP",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord6_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord6_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord6_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord7_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord7_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord7_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord8_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord8_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord8_FC1",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord8_FC2",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord8_FC2",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord8_FC2",
+          "dataType": "integer",
+          "connected": false
+        },
+        {
+          "name": "FaultWord9_FC1",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord9_FC1",
+          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord9_FC1",
+          "dataType": "integer",
+          "connected": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "severity",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/outputs/severity",
+          "path": "ACS5000AD_Trigger_Beta1_0.outputs.severity",
+          "dataType": "integer",
+          "connected": true,
+          "isPublished": false
+        }
+      ],
+      "inhibits": [
+        {
+          "name": "referenceValue",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inhibit/referenceValue",
+          "path": "ACS5000AD_Trigger_Beta1_0.inhibit.referenceValue",
+          "dataType": "boolean",
+          "connected": false
+        },
+        {
+          "name": "actualValue",
+          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inhibit/actualValue",
+          "path": "ACS5000AD_Trigger_Beta1_0.inhibit.actualValue",
+          "dataType": "boolean",
+          "connected": false
+        }
+      ],
+      "alarmInputs": [],
+      "eventInputs": [],
+      "alarmPins": {
+        "isPublished": true
+      },
+      "assetType": "abb.ability.conditioningMonitor.function",
+      "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+      "timeTrigger": "",
+      "longestInputPinText": "",
+      "longestOutputPinText": "",
+      "isEndPointDirty": false,
+      "hasOverRiddenConditions": false,
+      "conditionsConfigurationVariables": [],
+      "isUpdateAvailable": false,
+      "isEncrypted": false
+    }
+  ]
+}

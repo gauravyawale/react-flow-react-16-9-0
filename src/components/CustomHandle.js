@@ -55,7 +55,7 @@ const LeftCustomHandle = React.memo(({ handle, topPos }) => {
   );
 });
 
-const RightCustomHandle = React.memo(({ handle, topPos }) => {
+const RightCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
   const { outputName, dataType, id, isPublished, isAlarmOutput, isAlarmOn } =
     handle;
   const [isPublish, setIsPublish] = useState(false);
@@ -63,8 +63,9 @@ const RightCustomHandle = React.memo(({ handle, topPos }) => {
   //handle the publish event on click
   const handlePublishRightClick = () => {
     setIsPublish(!isPublish);
+    console.log("i am right click", handle, nodeId);
   };
-  console.log("i am right click");
+
   return (
     <div className="right-custom-handle" style={{ top: topPos }}>
       <div className="handle-name-right">
