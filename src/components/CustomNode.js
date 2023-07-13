@@ -89,7 +89,7 @@ const CustomNode = React.memo((props) => {
       {/* Output handle */}
       {data?.isCollapsed ? (
         <Handle
-          type="target"
+          type="source"
           position="right"
           style={{
             backgroundColor: "#fff",

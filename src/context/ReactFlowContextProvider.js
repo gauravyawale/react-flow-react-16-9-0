@@ -335,7 +335,6 @@ export const ReactFlowContextProvider = ({ children }) => {
 
   const handleCollapseExapnd = useCallback(
     (nodeId, isCollapsed) => {
-      console.log(edges, "edges", nodeId);
       let collapsedNode;
       const updatedNodes = nodes.map((node) => {
         if (node.id === nodeId) {
@@ -398,11 +397,11 @@ export const ReactFlowContextProvider = ({ children }) => {
           }
         }
       });
-
+      console.log(edges, "edges", updatedEdges);
       setNodes(updatedNodes);
       setEdges(updatedEdges);
     },
-    [nodes]
+    [nodes, edges]
   );
 
   // Provide the context values
