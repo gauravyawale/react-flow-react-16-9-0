@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./LeftSideMenu.css";
 import { nanoid } from "nanoid";
 import {
@@ -7,16 +7,13 @@ import {
   getRandomDataType,
 } from "./constants";
 import { createNodes } from "./dumpNodes";
+import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
-const LeftSideMenu = ({
-  addNode,
-  setIsModalOpen,
-  isModalOpen,
-  handleDeleteNode,
-}) => {
+const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
   const [inputCount, setInputCount] = useState(2);
   const [outputCount, setOutputCount] = useState(2);
   const [list, setList] = useState([]);
+  const { handleDeleteNode, addNode } = useContext(ReactFlowContext);
 
   useEffect(() => {
     // Retrieve functionsList from localStorage when component mounts
@@ -56,8 +53,8 @@ const LeftSideMenu = ({
         id: nanoid(),
         type: "target",
         position: "left",
-        dataType: connectionData.type,
-        initalValue: connectionData.value,
+        dataType: i === 0 || i === 1 ? "Bool" : connectionData.type,
+        initalValue: i === 0 || i === 1 ? false : connectionData.value,
         isTriggered: false,
         isReferenced: i < 2 ? true : false,
         isActual: i < 2 ? true : false,
@@ -76,11 +73,11 @@ const LeftSideMenu = ({
         id: nanoid(),
         type: "source",
         position: "right",
-        dataType: connectionData.type,
+        dataType: i === 0 ? "Bool" : connectionData.type,
         isPublished: false,
-        isAlarmOutput: false,
+        isAlarmOutput: i === 0 ? true : false,
         isAlarmOn: false,
-        outputName: connectionData.type,
+        outputName: i === 0 ? "Alarm" : connectionData.type,
       });
     }
     const newNode = {
@@ -90,7 +87,10 @@ const LeftSideMenu = ({
       data: {
         input: customInputs,
         output: customOutputs,
+        tempIdOutput: nanoid(),
+        tempIdInput: nanoid(),
         label: "function " + (list.length + 1),
+        isCollapsed: false,
       },
       style: {
         border: "1px solid #000",
@@ -167,6 +167,6 @@ const LeftSideMenu = ({
       )}
     </div>
   );
-};
+});
 
 export default LeftSideMenu;

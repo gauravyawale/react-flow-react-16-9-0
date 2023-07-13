@@ -46,7 +46,8 @@ export const createNodes = () => {
     }
 
     let overlap = true;
-    let newX, newY;
+    let newX;
+    let newY;
     const nodeSize = 150; // Adjust this value based on your node size
     const padding = 20; // Adjust this value based on desired padding
 
@@ -77,6 +78,8 @@ export const createNodes = () => {
         input: inputs,
         output: outputs,
         label: `function ${i + 1}`,
+        isCollapsed: false,
+        collapsedData: null,
       },
       style: {
         border: "1px solid #000",
@@ -87,7 +90,6 @@ export const createNodes = () => {
         backgroundColor: "rgba(255, 255, 255)",
       },
       position: { x: newX, y: newY },
-      className: "light",
     };
 
     nodes.push(newNode);

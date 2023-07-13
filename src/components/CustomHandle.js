@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Handle } from "react-flow-renderer";
 import "./CustomHandle.css";
+import { ReactComponent as AlarmActiveIcon } from "../icons/alarmActive.svg";
+import { ReactComponent as AlarmInactiveIcon } from "../icons/alarmInactive.svg";
+import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
-const LeftCustomHandle = ({ handle, topPos }) => {
+const LeftCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
   const {
     inputName,
     initalValue,
@@ -12,10 +15,12 @@ const LeftCustomHandle = ({ handle, topPos }) => {
     isReferenced,
     isActual,
   } = handle;
-  const [isPublished, setIsPublished] = useState(false);
-  //handle the publish event on click
-  const handlePublishLeftClick = () => {
-    setIsPublished(!isPublished);
+  const { handleInputTrigger } = useContext(ReactFlowContext);
+
+  const handleInputTriggerClick = () => {
+    const strokeColor =
+      (isReferenced || isActual) && !isTriggered ? "orange" : "blue";
+    handleInputTrigger(nodeId, id, !isTriggered, strokeColor);
   };
 
   return (
@@ -23,11 +28,31 @@ const LeftCustomHandle = ({ handle, topPos }) => {
       <div className="handle-name-left">{inputName}</div>
       <div className="left-handle-container">
         <div
-          className="handle-publish-left"
-          onClick={handlePublishLeftClick}
+          className="line"
           style={{
-            backgroundColor: isPublished ? "blue" : "whitesmoke",
-            border: `1px solid ${isPublished ? "blue" : "black"}`,
+            borderTop: `1px solid ${
+              isReferenced || isActual ? "orange" : "#888"
+            }`,
+            top: `${isReferenced || isActual ? "8.2px" : "8px"}`,
+          }}
+        ></div>
+        <div
+          className="handle-publish-left"
+          onClick={handleInputTriggerClick}
+          style={{
+            backgroundColor:
+              (isReferenced || isActual) && isTriggered
+                ? "orange"
+                : isTriggered
+                ? "blue"
+                : "whitesmoke",
+            border: `1px solid ${
+              isReferenced || isActual
+                ? "orange"
+                : isTriggered
+                ? "blue"
+                : "black"
+            }`,
           }}
         ></div>
         <div
@@ -45,49 +70,73 @@ const LeftCustomHandle = ({ handle, topPos }) => {
         <Handle
           type="target"
           position="left"
-          style={{ backgroundColor: "#fff" }}
+          style={{
+            backgroundColor: "#fff",
+            borderColor: `${isReferenced || isActual ? "orange" : "#888"}`,
+          }}
           id={id}
         />
       </div>
     </div>
   );
-};
+});
 
-const RightCustomHandle = ({ handle, topPos }) => {
+const RightCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
   const { outputName, dataType, id, isPublished, isAlarmOutput, isAlarmOn } =
     handle;
-  const [isPublish, setIsPublish] = useState(false);
-
-  //handle the publish event on click
-  const handlePublishRightClick = () => {
-    setIsPublish(!isPublish);
-  };
+  const { handleAlarmTrigger, handleOutputPublish } =
+    useContext(ReactFlowContext);
 
   return (
     <div className="right-custom-handle" style={{ top: topPos }}>
-      <div className="handle-name-right">{outputName}</div>
+      <div className="handle-name-right">
+        {isAlarmOutput ? (
+          isAlarmOn ? (
+            <div
+              onClick={() => handleAlarmTrigger(nodeId, id, !isAlarmOn)}
+              style={{ cursor: "pointer" }}
+            >
+              <AlarmActiveIcon />
+            </div>
+          ) : (
+            <div
+              onClick={() => handleAlarmTrigger(nodeId, id, !isAlarmOn)}
+              style={{ cursor: "pointer" }}
+            >
+              <AlarmInactiveIcon />
+            </div>
+          )
+        ) : (
+          outputName
+        )}
+      </div>
       <div className="right-handle-container">
-        <div
-          className="handle-publish-right"
-          onClick={handlePublishRightClick}
-          style={{
-            backgroundColor: isPublish ? "blue" : "whitesmoke",
-            border: `1px solid ${isPublish ? "blue" : "black"}`,
-          }}
-        ></div>
+        {!isAlarmOutput && (
+          <div
+            className="handle-publish-right"
+            onClick={() => handleOutputPublish(nodeId, id, !isPublished)}
+            style={{
+              backgroundColor: isPublished ? "blue" : "whitesmoke",
+              border: `1px solid ${isPublished ? "blue" : "black"}`,
+            }}
+          ></div>
+        )}
         <Handle
           type="source"
           position="right"
           style={{ backgroundColor: "#fff" }}
           id={id}
+          isConnectable={isAlarmOutput ? false : true}
         />
         <div className="right-handle-info">
-          <span className="right-handle-data-type">{dataType}</span>
+          {!isAlarmOutput && (
+            <span className="right-handle-data-type">{dataType}</span>
+          )}
           {/* <span className="handle-value-right">10</span> */}
         </div>
       </div>
     </div>
   );
-};
+});
 
 export { LeftCustomHandle, RightCustomHandle };

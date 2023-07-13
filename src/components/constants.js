@@ -31,3 +31,9 @@ export const IN_CONNECT_VALUES = {
   REFERENCE_VALUE: "referenceValue",
   ACTUAL_VALUE: "actualValue",
 };
+
+export const calculateHandlePosition = (handleIndex, totalHandles) => {
+  const handleGapPercentage = 100 / (totalHandles + 1);
+  const handlePositionPercentage = handleGapPercentage * (handleIndex + 1);
+  return `${handlePositionPercentage}%`;
+};

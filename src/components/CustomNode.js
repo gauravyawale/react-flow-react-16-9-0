@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 // import { NodeResizer } from "react-flow-renderer";
 import "./CustomNode.css";
 import { LeftCustomHandle, RightCustomHandle } from "./CustomHandle";
+import { calculateHandlePosition } from "./constants";
+import { ReactComponent as SettingsIcon } from "../icons/settings.svg";
+import { ReactComponent as UpdateIcon } from "../icons/update.svg";
+import { ReactComponent as CollapseIcon } from "../icons/collapse.svg";
+import { ReactComponent as ExpandIcon } from "../icons/expand.svg";
+import { Handle } from "react-flow-renderer";
+import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
-const CustomNode = (props) => {
-  const { data } = props;
+const CustomNode = React.memo((props) => {
+  const { data, id } = props;
+  const { handleCollapseExapnd } = useContext(ReactFlowContext);
   return (
     <>
       {/* <NodeResizer
@@ -18,36 +26,94 @@ const CustomNode = (props) => {
         }
       /> */}
       {/* Input handles */}
-      {data?.input.map((input, idx) => {
-        return (
-          <LeftCustomHandle
-            handle={input}
-            key={input.id}
-            topPos={calculateHandlePosition(idx, data?.input?.length)}
-          />
-        );
-      })}
-      <div style={{ fontSize: "8px", textAlign: "center", marginTop: "-8px" }}>
-        {data?.label}
+      {data?.isCollapsed ? (
+        <Handle
+          type="target"
+          position="left"
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: 50,
+            borderColor: "orange",
+          }}
+          id={data?.tempIdInput}
+        />
+      ) : (
+        data?.input.map((input, idx) => {
+          return (
+            <LeftCustomHandle
+              handle={input}
+              key={input.id}
+              nodeId={id}
+              topPos={calculateHandlePosition(idx, data?.input?.length)}
+            />
+          );
+        })
+      )}
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+          marginTop: "-8px",
+          height: "4px",
+          padding: "4px",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "8px",
+          }}
+        >
+          {data?.label}
+        </div>
+        {!data?.isCollapsed && <SettingsIcon />}
+        <div
+          onClick={() => handleCollapseExapnd(id, !data?.isCollapsed)}
+          style={{ cursor: "pointer" }}
+        >
+          {data?.isCollapsed ? <ExpandIcon /> : <CollapseIcon />}
+        </div>
       </div>
+      {false && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "6px",
+          }}
+        >
+          <UpdateIcon />
+        </div>
+      )}
+
       {/* Output handle */}
-      {data?.output.map((output, idx) => {
-        return (
-          <RightCustomHandle
-            handle={output}
-            key={output.id}
-            topPos={calculateHandlePosition(idx, data?.output?.length)}
-          />
-        );
-      })}
+      {data?.isCollapsed ? (
+        <Handle
+          type="source"
+          position="right"
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: 50,
+            borderColor: "orange",
+          }}
+          id={data?.tempIdOutput}
+        />
+      ) : (
+        data?.output.map((output, idx) => {
+          return (
+            <RightCustomHandle
+              handle={output}
+              key={output.id}
+              nodeId={id}
+              topPos={calculateHandlePosition(idx, data?.output?.length)}
+            />
+          );
+        })
+      )}
     </>
   );
-};
+});
 
 export default CustomNode;
-
-function calculateHandlePosition(handleIndex, totalHandles) {
-  const handleGapPercentage = 100 / (totalHandles + 1);
-  const handlePositionPercentage = handleGapPercentage * (handleIndex + 1);
-  return `${handlePositionPercentage}%`;
-}
