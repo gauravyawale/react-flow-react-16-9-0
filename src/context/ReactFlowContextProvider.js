@@ -172,16 +172,7 @@ export const ReactFlowContextProvider = ({ children }) => {
 
         if (sourceDataType === targetDataType) {
           // Data types match, allow the connection
-          setEdges((eds) =>
-            addEdge(
-              {
-                ...params,
-                animated: true,
-                style: { stroke: "blue", strokeWidth: 1 },
-              },
-              eds
-            )
-          );
+          setEdges((eds) => addEdge(params, eds));
         } else {
           // Data types don't match, prevent the connection
           console.log("Data types do not match. Connection not allowed.");
@@ -253,8 +244,97 @@ export const ReactFlowContextProvider = ({ children }) => {
     setNodes((prevNodes) => prevNodes.filter((node) => node.id !== nodeId));
   }, []);
 
+  const handleInputTrigger = useCallback(
+    (nodeId, targetId, isTriggered) => {
+      let isConnected = false;
+      const updateEdgesWithAnimation = edges.map((edge) => {
+        if (targetId === edge.targetHandle) {
+          isConnected = true;
+          if (isTriggered) {
+            return {
+              ...edge,
+              animated: true,
+              style: { stroke: "blue", strokeWidth: 1 },
+            };
+          } else {
+            return {
+              ...edge,
+              animated: false,
+              style: { stroke: "", strokeWidth: 1 },
+            };
+          }
+        } else {
+          return edge;
+        }
+      });
+
+      if (isConnected) {
+        const updatedNodes = nodes.map((node) => {
+          if (node.id === nodeId) {
+            const newData = { ...node.data };
+            const updatedInputs = newData?.input.map((input) => {
+              if (input.id === targetId) {
+                return { ...input, isTriggered: isTriggered };
+              }
+              return input;
+            });
+            newData.input = updatedInputs;
+            return { ...node, data: newData };
+          }
+          return node;
+        });
+        setNodes(updatedNodes);
+      }
+
+      setEdges(updateEdgesWithAnimation);
+    },
+    [edges, nodes]
+  );
+
+  const handleOutputPublish = useCallback(
+    (nodeId, sourceId, isPublished) => {
+      const updatedNodes = nodes.map((node) => {
+        if (node.id === nodeId) {
+          const newData = { ...node.data };
+          const updatedOutputs = newData?.output.map((output) => {
+            if (output.id === sourceId) {
+              return { ...output, isPublished: isPublished };
+            }
+            return output;
+          });
+          newData.output = updatedOutputs;
+          return { ...node, data: newData };
+        }
+        return node;
+      });
+      setNodes(updatedNodes);
+    },
+    [nodes]
+  );
+
+  const handleAlarmTrigger = useCallback(
+    (nodeId, handleId, isAlarmOn) => {
+      const updatedNodes = nodes.map((node) => {
+        if (node.id === nodeId) {
+          const newData = { ...node.data };
+          const updatedOutputs = newData?.output.map((output) => {
+            if (output.id === handleId) {
+              return { ...output, isAlarmOn: isAlarmOn };
+            }
+            return output;
+          });
+          newData.output = updatedOutputs;
+          return { ...node, data: newData };
+        }
+        return node;
+      });
+      setNodes(updatedNodes);
+    },
+    [nodes]
+  );
+
   const handleCollapseExapnd = useCallback(
-    (nodeId, status) => {
+    (nodeId, isCollapsed) => {
       console.log(edges, "edges", nodeId);
       let collapsedNode;
       const updatedNodes = nodes.map((node) => {
@@ -263,11 +343,11 @@ export const ReactFlowContextProvider = ({ children }) => {
             ...node,
             data: {
               ...node.data,
-              isCollapsed: status,
+              isCollapsed: isCollapsed,
             },
             style: {
               ...node.style,
-              height: status
+              height: isCollapsed
                 ? "20px"
                 : Math.max(
                     node?.data?.input?.length,
@@ -284,7 +364,7 @@ export const ReactFlowContextProvider = ({ children }) => {
       });
 
       const updatedEdges = edges.map((edge) => {
-        if (status) {
+        if (isCollapsed) {
           if (nodeId === edge.target) {
             return {
               ...edge,
@@ -339,6 +419,9 @@ export const ReactFlowContextProvider = ({ children }) => {
     onEdgeUpdateEnd,
     handleDeleteNode,
     handleCollapseExapnd,
+    handleInputTrigger,
+    handleAlarmTrigger,
+    handleOutputPublish,
   };
 
   return (

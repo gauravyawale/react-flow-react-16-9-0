@@ -53,8 +53,8 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
         id: nanoid(),
         type: "target",
         position: "left",
-        dataType: connectionData.type,
-        initalValue: connectionData.value,
+        dataType: i === 0 || i === 1 ? "Bool" : connectionData.type,
+        initalValue: i === 0 || i === 1 ? false : connectionData.value,
         isTriggered: false,
         isReferenced: i < 2 ? true : false,
         isActual: i < 2 ? true : false,
@@ -73,11 +73,11 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
         id: nanoid(),
         type: "source",
         position: "right",
-        dataType: connectionData.type,
+        dataType: i === 0 ? "Bool" : connectionData.type,
         isPublished: false,
-        isAlarmOutput: false,
+        isAlarmOutput: i === 0 ? true : false,
         isAlarmOn: false,
-        outputName: connectionData.type,
+        outputName: i === 0 ? "Alarm" : connectionData.type,
       });
     }
     const newNode = {

@@ -43,6 +43,7 @@ const CustomNode = React.memo((props) => {
             <LeftCustomHandle
               handle={input}
               key={input.id}
+              nodeId={id}
               topPos={calculateHandlePosition(idx, data?.input?.length)}
             />
           );
@@ -65,7 +66,7 @@ const CustomNode = React.memo((props) => {
         >
           {data?.label}
         </div>
-        <SettingsIcon />
+        {!data?.isCollapsed && <SettingsIcon />}
         <div
           onClick={() => handleCollapseExapnd(id, !data?.isCollapsed)}
           style={{ cursor: "pointer" }}
