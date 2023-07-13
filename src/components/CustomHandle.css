@@ -107,14 +107,13 @@
   border-top: 1px solid #888; /* Adjust the line color and style */
 }
 
-.left-handle-container .react-flow__handle::before {
+.line {
   content: "";
   position: absolute;
-  top: 0.5px; /* Adjust the value based on desired line position */
-  left: 1px; /* Adjust the value based on desired line position */
+  top: 8px; /* Adjust the value based on desired line position */
+  right: -5px; /* Adjust the value based on desired line position */
   width: 32px;
   height: 10px; /* Adjust the value based on desired line length */
-  border-top: 1px solid #888; /* Adjust the line color and style */
 }
 
 .right-handle-container .handle-publish-right {

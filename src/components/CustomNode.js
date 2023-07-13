@@ -56,7 +56,9 @@ const CustomNode = React.memo((props) => {
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
-          marginTop: "-12px",
+          marginTop: "-8px",
+          height: "4px",
+          padding: "4px",
         }}
       >
         <div

@@ -245,7 +245,7 @@ export const ReactFlowContextProvider = ({ children }) => {
   }, []);
 
   const handleInputTrigger = useCallback(
-    (nodeId, targetId, isTriggered) => {
+    (nodeId, targetId, isTriggered, strokeColor) => {
       let isConnected = false;
       const updateEdgesWithAnimation = edges.map((edge) => {
         if (targetId === edge.targetHandle) {
@@ -254,7 +254,7 @@ export const ReactFlowContextProvider = ({ children }) => {
             return {
               ...edge,
               animated: true,
-              style: { stroke: "blue", strokeWidth: 1 },
+              style: { stroke: strokeColor, strokeWidth: 1 },
             };
           } else {
             return {

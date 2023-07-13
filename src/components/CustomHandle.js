@@ -17,16 +17,42 @@ const LeftCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
   } = handle;
   const { handleInputTrigger } = useContext(ReactFlowContext);
 
+  const handleInputTriggerClick = () => {
+    const strokeColor =
+      (isReferenced || isActual) && !isTriggered ? "orange" : "blue";
+    handleInputTrigger(nodeId, id, !isTriggered, strokeColor);
+  };
+
   return (
     <div className="left-custom-handle" style={{ top: topPos }}>
       <div className="handle-name-left">{inputName}</div>
       <div className="left-handle-container">
         <div
-          className="handle-publish-left"
-          onClick={() => handleInputTrigger(nodeId, id, !isTriggered)}
+          className="line"
           style={{
-            backgroundColor: isTriggered ? "blue" : "whitesmoke",
-            border: `1px solid ${isTriggered ? "blue" : "black"}`,
+            borderTop: `1px solid ${
+              isReferenced || isActual ? "orange" : "#888"
+            }`,
+            top: `${isReferenced || isActual ? "8.2px" : "8px"}`,
+          }}
+        ></div>
+        <div
+          className="handle-publish-left"
+          onClick={handleInputTriggerClick}
+          style={{
+            backgroundColor:
+              (isReferenced || isActual) && isTriggered
+                ? "orange"
+                : isTriggered
+                ? "blue"
+                : "whitesmoke",
+            border: `1px solid ${
+              isReferenced || isActual
+                ? "orange"
+                : isTriggered
+                ? "blue"
+                : "black"
+            }`,
           }}
         ></div>
         <div
@@ -44,7 +70,10 @@ const LeftCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
         <Handle
           type="target"
           position="left"
-          style={{ backgroundColor: "#fff" }}
+          style={{
+            backgroundColor: "#fff",
+            borderColor: `${isReferenced || isActual ? "orange" : "#888"}`,
+          }}
           id={id}
         />
       </div>
@@ -63,11 +92,17 @@ const RightCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
       <div className="handle-name-right">
         {isAlarmOutput ? (
           isAlarmOn ? (
-            <div onClick={() => handleAlarmTrigger(nodeId, id, !isAlarmOn)}>
+            <div
+              onClick={() => handleAlarmTrigger(nodeId, id, !isAlarmOn)}
+              style={{ cursor: "pointer" }}
+            >
               <AlarmActiveIcon />
             </div>
           ) : (
-            <div onClick={() => handleAlarmTrigger(nodeId, id, !isAlarmOn)}>
+            <div
+              onClick={() => handleAlarmTrigger(nodeId, id, !isAlarmOn)}
+              style={{ cursor: "pointer" }}
+            >
               <AlarmInactiveIcon />
             </div>
           )
@@ -91,9 +126,12 @@ const RightCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
           position="right"
           style={{ backgroundColor: "#fff" }}
           id={id}
+          isConnectable={isAlarmOutput ? false : true}
         />
         <div className="right-handle-info">
-          <span className="right-handle-data-type">{dataType}</span>
+          {!isAlarmOutput && (
+            <span className="right-handle-data-type">{dataType}</span>
+          )}
           {/* <span className="handle-value-right">10</span> */}
         </div>
       </div>
