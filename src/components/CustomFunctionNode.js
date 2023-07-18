@@ -10,7 +10,7 @@ import { ReactComponent as ExpandIcon } from "../icons/expand.svg";
 import { Handle } from "react-flow-renderer";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
-const CustomNode = React.memo((props) => {
+const CustomFunctionNode = React.memo((props) => {
   const { data, id } = props;
   const { handleCollapseExapnd } = useContext(ReactFlowContext);
   const inputData = [...data?.assetData?.inhibits, ...data?.assetData?.inputs];
@@ -120,4 +120,4 @@ const CustomNode = React.memo((props) => {
   );
 });
 
-export default CustomNode;
+export default CustomFunctionNode;

@@ -25,19 +25,19 @@ export const ReactFlowContextProvider = ({ children }) => {
   const [edges, setEdges] = useState([]);
   const edgeUpdateSuccessful = useRef(true);
 
-  useEffect(() => {
-    // Retrieve nodes and edges data from localStorage when component mounts
-    const nodesData = localStorage.getItem("nodesData");
-    const edgesData = localStorage.getItem("edgesData");
-    if (nodesData?.length) setNodes(JSON.parse(nodesData));
-    if (edgesData?.length) setEdges(JSON.parse(edgesData));
-  }, []);
+  // useEffect(() => {
+  //   // Retrieve nodes and edges data from localStorage when component mounts
+  //   const nodesData = localStorage.getItem("nodesData");
+  //   const edgesData = localStorage.getItem("edgesData");
+  //   if (nodesData?.length) setNodes(JSON.parse(nodesData));
+  //   if (edgesData?.length) setEdges(JSON.parse(edgesData));
+  // }, []);
 
-  useEffect(() => {
-    // Store nodes and edges data in localStorage when it changes
-    if (nodes?.length) localStorage.setItem("nodesData", JSON.stringify(nodes));
-    if (edges?.length) localStorage.setItem("edgesData", JSON.stringify(edges));
-  }, [nodes, edges]);
+  // useEffect(() => {
+  //   // Store nodes and edges data in localStorage when it changes
+  //   if (nodes?.length) localStorage.setItem("nodesData", JSON.stringify(nodes));
+  //   if (edges?.length) localStorage.setItem("edgesData", JSON.stringify(edges));
+  // }, [nodes, edges]);
 
   const onNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
@@ -173,6 +173,7 @@ export const ReactFlowContextProvider = ({ children }) => {
 
         if (sourceDataType === targetDataType) {
           // Data types match, allow the connection
+          console.log(params, "params", edges);
           setEdges((eds) => addEdge(params, eds));
         } else {
           // Data types don't match, prevent the connection
@@ -408,19 +409,46 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes, edges]
   );
 
-  //useAvailableModelData
+  //pre-feed the data in react flow graph
+  const addAvailableModelData = useCallback(
+    (modelData) => {
+      console.log("reached here model dat", modelData);
 
-  const addAvailableModelData = (modelData) => {
-    console.log("reached here model dat", modelData);
-    const updateNodesModelData = modelData?.assetData?.map((asset) => {
-      if (getAssetType(asset?.assetType) === ASSET_TYPES?.FUNCTION_TYPE) {
-        const functionNodeHeight =
-          Math.max(asset?.inputs?.length + 2, asset?.outputs?.length) *
-            HANDLE_SPACING +
-          HANDLE_SPACING;
+      const updateNodesModelData = modelData?.assetData?.map((asset) => {
+        if (getAssetType(asset?.assetType) === ASSET_TYPES?.FUNCTION_TYPE) {
+          const functionNodeHeight =
+            Math.max(asset?.inputs?.length + 2, asset?.outputs?.length) *
+              HANDLE_SPACING +
+            HANDLE_SPACING;
+          return {
+            id: asset?.nodeId,
+            type: "customFunctionNode",
+            data: {
+              assetData: asset,
+              tempIdOutput: "DNkgLBvtLfwJPiAsTmecL",
+              tempIdInput: "ez09XAeCodVc5JOokUOis",
+              label: asset?.assetName,
+              isCollapsed: false,
+            },
+            style: {
+              border: "1px solid #000",
+              borderRadius: 8,
+              padding: 10,
+              width: "150px",
+              height: functionNodeHeight,
+              backgroundColor: "rgba(255, 255, 255)",
+            },
+            position: {
+              x: asset?.position?.x,
+              y: asset?.position?.y,
+            },
+          };
+        }
+        const objectNodeHeight =
+          asset?.outputs?.length * HANDLE_SPACING + HANDLE_SPACING;
         return {
-          id: nanoid(),
-          type: "customNode",
+          id: asset?.nodeId,
+          type: "customObjectNode",
           data: {
             assetData: asset,
             tempIdOutput: "DNkgLBvtLfwJPiAsTmecL",
@@ -430,10 +458,10 @@ export const ReactFlowContextProvider = ({ children }) => {
           },
           style: {
             border: "1px solid #000",
-            borderRadius: 8,
+            borderRadius: 2,
             padding: 10,
-            width: "150px",
-            height: functionNodeHeight,
+            width: "100px",
+            height: objectNodeHeight,
             backgroundColor: "rgba(255, 255, 255)",
           },
           position: {
@@ -441,36 +469,28 @@ export const ReactFlowContextProvider = ({ children }) => {
             y: asset?.position?.y,
           },
         };
-      }
-      const objectNodeHeight =
-        asset?.outputs?.length * HANDLE_SPACING + HANDLE_SPACING;
-      return {
-        id: nanoid(),
-        type: "customObjectNode",
-        data: {
-          assetData: asset,
-          tempIdOutput: "DNkgLBvtLfwJPiAsTmecL",
-          tempIdInput: "ez09XAeCodVc5JOokUOis",
-          label: asset?.assetName,
-          isCollapsed: false,
-        },
-        style: {
-          border: "1px solid #000",
-          borderRadius: 2,
-          padding: 10,
-          width: "100px",
-          height: objectNodeHeight,
-          backgroundColor: "rgba(255, 255, 255)",
-        },
-        position: {
-          x: asset?.position?.x,
-          y: asset?.position?.y,
-        },
-      };
-    });
+      });
 
-    setNodes(updateNodesModelData);
-  };
+      const updateEdgesModelData = modelData?.connectionData?.map(
+        (connection) => {
+          return {
+            // id: `reactflow__edge-${connection?.output?.asset?.nodeId}${connection?.output?.circleData?.id}-${connection?.input?.asset?.nodeId}${connection?.input?.circleData?.id}`,
+            source: connection?.output?.asset?.nodeId,
+            sourceHandle: connection?.output?.circleData?.id,
+            target: connection?.input?.asset?.nodeId,
+            targetHandle: connection?.input?.circleData?.id,
+            data: {
+              connection: connection,
+            },
+          };
+        }
+      );
+      console.log("reached here edges", updateEdgesModelData);
+      setEdges(updateEdgesModelData);
+      setNodes(updateNodesModelData);
+    },
+    [edges, nodes]
+  );
   // Provide the context values
   const contextValues = {
     nodes,

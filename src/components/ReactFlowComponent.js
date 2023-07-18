@@ -4,13 +4,13 @@ import ReactFlow, {
   MiniMap,
   BackgroundVariant,
 } from "react-flow-renderer";
-import CustomNode from "./CustomNode";
+import CustomFunctionNode from "./CustomFunctionNode";
 import CustomObjectNode from "./CustomObjectNode";
 import { useContext } from "react";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
 const nodeTypes = {
-  customNode: CustomNode,
+  customFunctionNode: CustomFunctionNode,
   customObjectNode: CustomObjectNode,
 };
 

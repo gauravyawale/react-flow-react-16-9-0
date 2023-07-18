@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./Header.css";
-import modelData from "../data/modelData.json";
+import modelData from "../data/largeModelData.json";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 const Header = ({ name }) => {
   const { addAvailableModelData } = useContext(ReactFlowContext);
