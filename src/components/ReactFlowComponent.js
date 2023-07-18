@@ -5,10 +5,14 @@ import ReactFlow, {
   BackgroundVariant,
 } from "react-flow-renderer";
 import CustomNode from "./CustomNode";
+import CustomObjectNode from "./CustomObjectNode";
 import { useContext } from "react";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
-const nodeTypes = { customNode: CustomNode };
+const nodeTypes = {
+  customNode: CustomNode,
+  customObjectNode: CustomObjectNode,
+};
 
 const ReactFlowComponent = () => {
   const {

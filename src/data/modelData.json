@@ -1,526 +1,125 @@
 {
   "assetData": [
     {
-      "assetRef": "abb.local.ACS5000AD_Trigger_Type_Beta1.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@2",
-      "assetVersion": "2.0.0",
-      "assetName": "ACS5000AD_Trigger_Beta1",
+      "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+      "assetVersion": "3.0.0",
+      "assetName": "Calc",
       "assetDescription": "",
-      "nodeId": "ACS5000AD_Trigger_Beta1_0",
-      "position": {
-        "x": 795.5,
-        "y": 68
-      },
+      "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+      "position": { "x": 158, "y": 141.1999969482422 },
       "scale": 1,
-      "isOpen": false,
+      "isOpen": true,
+      "outputs": [
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+          "dataType": "integer",
+          "name": "i1",
+          "path": "aspects.ControlConnection.i1",
+          "connected": true
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+          "dataType": "integer",
+          "name": "i2",
+          "path": "aspects.ControlConnection.i2",
+          "connected": false
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+          "dataType": "integer",
+          "name": "i3",
+          "path": "aspects.ControlConnection.i3",
+          "connected": false
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+          "dataType": "integer",
+          "name": "i5",
+          "path": "aspects.ControlConnection.i5",
+          "connected": false
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+          "dataType": "integer",
+          "name": "i6",
+          "path": "aspects.ControlConnection.i6",
+          "connected": false
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+          "dataType": "integer",
+          "name": "i7",
+          "path": "aspects.ControlConnection.i7",
+          "connected": false
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+          "dataType": "integer",
+          "name": "i8",
+          "path": "aspects.ControlConnection.i8",
+          "connected": false
+        },
+        {
+          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+          "dataType": "integer",
+          "name": "i9",
+          "path": "aspects.ControlConnection.i9",
+          "connected": false
+        }
+      ],
+      "assetType": "abb.controlSystem.800xA.aspectObject",
+      "objectInstance": false,
+      "isReferencedType": false
+    },
+    {
+      "assetRef": "abb.local.testFunction170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+      "assetVersion": "1.0.0",
+      "assetName": "testFunction170723",
+      "assetDescription": "testFunction170723",
+      "nodeId": "testFunction170723_0",
+      "position": { "x": 597.0021857923497, "y": 74.25653405071567 },
+      "scale": 1,
+      "isOpen": true,
       "inputs": [
         {
-          "name": "ACU_ALARMWORD1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_ALARMWORD1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_ALARMWORD1",
-          "dataType": "integer",
-          "connected": true
+          "name": "Input0",
+          "id": "#/properties/functions/testFunction170723_0/inputs/Input0",
+          "path": "testFunction170723_0.inputs.Input0",
+          "dataType": "string",
+          "connected": false,
+          "mappingDetails": []
         },
         {
-          "name": "ACU_ALARMWORD2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_ALARMWORD2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_ALARMWORD2",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "ACU_FAULTWORD1_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_FAULTWORD1_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_FAULTWORD1_FC1",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "ACU_FAULTWORD1_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_FAULTWORD1_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_FAULTWORD1_FC2",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "ACU_FAULTWORD2_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/ACU_FAULTWORD2_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.ACU_FAULTWORD2_FC1",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "AlarmWord_CntrlHardware",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_CntrlHardware",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_CntrlHardware",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "AlarmWord_Communication",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_Communication",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_Communication",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "AlarmWord_Current",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_Current",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_Current",
-          "dataType": "integer",
-          "connected": true
-        },
-        {
-          "name": "AlarmWord_OtherAlarm",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_OtherAlarm",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_OtherAlarm",
+          "name": "Input1",
+          "id": "#/properties/functions/testFunction170723_0/inputs/Input1",
+          "path": "testFunction170723_0.inputs.Input1",
           "dataType": "integer",
           "connected": true,
-          "defaultValue": "0"
-        },
-        {
-          "name": "AlarmWord_ShortCircuit",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_ShortCircuit",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_ShortCircuit",
-          "dataType": "integer",
-          "connected": true,
-          "defaultValue": "0"
-        },
-        {
-          "name": "AlarmWord_SpeedPosition",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord_SpeedPosition",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord_SpeedPosition",
-          "dataType": "integer",
-          "connected": true,
-          "defaultValue": "0"
-        },
-        {
-          "name": "AlarmWord1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord1",
-          "dataType": "integer",
-          "connected": true,
-          "defaultValue": "0"
-        },
-        {
-          "name": "AlarmWord10",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord10",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord10",
-          "dataType": "integer",
-          "connected": true,
-          "defaultValue": "0"
-        },
-        {
-          "name": "AlarmWord11",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord11",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord11",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord12",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord12",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord12",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord15",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord15",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord15",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord17",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord17",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord17",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord19",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord19",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord19",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord2_CntrlHardware",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord2_CntrlHardware",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord2_CntrlHardware",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord20",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord20",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord20",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord21",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord21",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord21",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord3",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord3",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord3",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord4",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord4",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord4",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord5",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord5",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord5",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord6",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord6",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord6",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord7",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord7",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord7",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord8",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord8",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord8",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "AlarmWord9",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/AlarmWord9",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.AlarmWord9",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_CntrlHardware",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_CntrlHardware",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_CntrlHardware",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_Communication",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Communication",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Communication",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_Current",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Current",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Current",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_DC_LinkVolt",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_DC_LinkVolt",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_DC_LinkVolt",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_Generic_Faults",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Generic_Faults",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Generic_Faults",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_Network",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Network",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Network",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_Other_Fault",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Other_Fault",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Other_Fault",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_ShortCircuit",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_ShortCircuit",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_ShortCircuit",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_SpeedPosition",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_SpeedPosition",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_SpeedPosition",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord_Switching",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord_Switching",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord_Switching",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_DC_LinkVolt",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_DC_LinkVolt",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_DC_LinkVolt",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_FC2HIP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC2HIP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC2HIP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_FC2LOP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_FC2LOP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_FC2LOP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_Generic_Faults",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_Generic_Faults",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_Generic_Faults",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_Switching",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_Switching",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_Switching",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord1_WithDefect_FC1D",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord1_WithDefect_FC1D",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord1_WithDefect_FC1D",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord10_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord10_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord10_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_CntrlHardware",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_CntrlHardware",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_CntrlHardware",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_Current",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_Current",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_Current",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_DC_LinkVolt",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_DC_LinkVolt",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_DC_LinkVolt",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_FC2HIP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC2HIP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC2HIP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord2_FC2LOP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord2_FC2LOP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord2_FC2LOP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord3_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord3_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord3_FC2HIP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC2HIP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC2HIP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord3_FC2LOP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord3_FC2LOP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord3_FC2LOP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord4_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord4_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord4_FC2HIP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC2HIP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC2HIP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord4_FC2LOP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord4_FC2LOP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord4_FC2LOP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord5_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord5_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord5_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord5_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord5_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord5_FC2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord5_FC2LOP",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord5_FC2LOP",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord5_FC2LOP",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord6_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord6_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord6_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord7_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord7_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord7_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord8_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord8_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord8_FC1",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord8_FC2",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord8_FC2",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord8_FC2",
-          "dataType": "integer",
-          "connected": false
-        },
-        {
-          "name": "FaultWord9_FC1",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inputs/FaultWord9_FC1",
-          "path": "ACS5000AD_Trigger_Beta1_0.inputs.FaultWord9_FC1",
-          "dataType": "integer",
-          "connected": false
+          "mappingDetails": [
+            {
+              "output": {
+                "asset": "[Circular Reference]",
+                "circleData": "[Circular Reference]",
+                "tooltip": "aspects.ControlConnection.i1"
+              },
+              "input": {
+                "asset": "[Circular Reference]",
+                "circleData": "[Circular Reference]",
+                "tooltip": "testFunction170723_0.inputs.Input1"
+              },
+              "trigger": false,
+              "tooltip": "Initial Value: 0"
+            }
+          ],
+          "defaultValue": "0",
+          "trigger": false
         }
       ],
       "outputs": [
         {
-          "name": "severity",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/outputs/severity",
-          "path": "ACS5000AD_Trigger_Beta1_0.outputs.severity",
+          "name": "Calculation1",
+          "id": "#/properties/functions/testFunction170723_0/outputs/Calculation1",
+          "path": "testFunction170723_0.outputs.Calculation1",
           "dataType": "integer",
           "connected": true,
           "isPublished": false
@@ -529,34 +128,1695 @@
       "inhibits": [
         {
           "name": "referenceValue",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inhibit/referenceValue",
-          "path": "ACS5000AD_Trigger_Beta1_0.inhibit.referenceValue",
+          "id": "#/properties/functions/testFunction170723_0/inhibit/referenceValue",
+          "path": "testFunction170723_0.inhibit.referenceValue",
           "dataType": "boolean",
-          "connected": false
+          "connected": false,
+          "mappingDetails": []
         },
         {
           "name": "actualValue",
-          "id": "#/properties/functions/ACS5000AD_Trigger_Beta1_0/inhibit/actualValue",
-          "path": "ACS5000AD_Trigger_Beta1_0.inhibit.actualValue",
+          "id": "#/properties/functions/testFunction170723_0/inhibit/actualValue",
+          "path": "testFunction170723_0.inhibit.actualValue",
           "dataType": "boolean",
-          "connected": false
+          "connected": false,
+          "mappingDetails": []
         }
       ],
+      "alias": {
+        "Input0": { "dataType": "string", "value": "Input0" },
+        "Input1": { "dataType": "string", "value": "Input1" },
+        "Calculation1": { "dataType": "string", "value": "Calculation1" }
+      },
       "alarmInputs": [],
       "eventInputs": [],
-      "alarmPins": {
-        "isPublished": true
+      "alarmPins": { "isPublished": false },
+      "calculations": {
+        "Calculation1": {
+          "outputType": { "dataType": "integer" },
+          "description": { "dataType": "string", "value": "" },
+          "logic": { "dataType": "string", "value": "$'Input0'+10" }
+        }
       },
       "assetType": "abb.ability.conditioningMonitor.function",
-      "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
-      "timeTrigger": "",
+      "endpoint": "http://rbemodule:5003/api/Evaluation/evaluateCalculations",
       "longestInputPinText": "",
       "longestOutputPinText": "",
       "isEndPointDirty": false,
       "hasOverRiddenConditions": false,
       "conditionsConfigurationVariables": [],
-      "isUpdateAvailable": false,
       "isEncrypted": false
+    },
+    {
+      "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+      "assetVersion": "1.0.0",
+      "assetName": "test2Function170723",
+      "assetDescription": "test2Function170723",
+      "nodeId": "test2Function170723_0",
+      "position": { "x": 662.6158094039762, "y": 430.8539623641664 },
+      "scale": 1,
+      "isOpen": true,
+      "inputs": [
+        {
+          "name": "Input0",
+          "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+          "path": "test2Function170723_0.inputs.Input0",
+          "dataType": "boolean",
+          "connected": false,
+          "mappingDetails": []
+        },
+        {
+          "name": "Input1",
+          "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+          "path": "test2Function170723_0.inputs.Input1",
+          "dataType": "array_integer",
+          "connected": true,
+          "mappingDetails": [
+            {
+              "input": {
+                "circleData": {
+                  "name": "Input1",
+                  "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                  "path": "test2Function170723_0.inputs.Input1",
+                  "dataType": "array_integer",
+                  "connected": true,
+                  "defaultValue": "0"
+                },
+                "asset": {
+                  "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                  "assetVersion": "1.0.0",
+                  "assetName": "test2Function170723",
+                  "assetDescription": "test2Function170723",
+                  "nodeId": "test2Function170723_0",
+                  "position": { "x": 597.0021857923497, "y": 413 },
+                  "scale": 1,
+                  "isOpen": true,
+                  "inputs": [
+                    {
+                      "name": "Input0",
+                      "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                      "path": "test2Function170723_0.inputs.Input0",
+                      "dataType": "boolean",
+                      "connected": false
+                    },
+                    "[Circular Reference]",
+                    {
+                      "name": "Input2",
+                      "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                      "path": "test2Function170723_0.inputs.Input2",
+                      "dataType": "integer",
+                      "connected": false
+                    }
+                  ],
+                  "outputs": [
+                    {
+                      "name": "severity",
+                      "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                      "path": "test2Function170723_0.outputs.severity",
+                      "dataType": "integer",
+                      "connected": false,
+                      "isPublished": false
+                    }
+                  ],
+                  "inhibits": [
+                    {
+                      "name": "referenceValue",
+                      "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                      "path": "test2Function170723_0.inhibit.referenceValue",
+                      "dataType": "boolean",
+                      "connected": false
+                    },
+                    {
+                      "name": "actualValue",
+                      "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                      "path": "test2Function170723_0.inhibit.actualValue",
+                      "dataType": "boolean",
+                      "connected": false
+                    }
+                  ],
+                  "alias": {
+                    "Input0": { "dataType": "string", "value": "Input0" },
+                    "Input1": { "dataType": "string", "value": "Input1" },
+                    "Input2": { "dataType": "string", "value": "Input2" },
+                    "severity": { "dataType": "string", "value": "severity" }
+                  },
+                  "alarmInputs": [],
+                  "eventInputs": [],
+                  "alarmPins": { "isPublished": false },
+                  "conditions": {
+                    "State1": {
+                      "subConditions": {
+                        "subCondition0": {
+                          "description": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "severity": {
+                            "dataType": "integer",
+                            "value": 100,
+                            "isDirty": false
+                          },
+                          "possibleCause": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "suggestedAction": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "correctiveAction": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "logic": {
+                            "dataType": "string",
+                            "value": "$'Input2' < 10",
+                            "isDirty": false
+                          },
+                          "status": { "dataType": "string", "isDirty": false }
+                        }
+                      }
+                    }
+                  },
+                  "assetType": "abb.ability.conditioningMonitor.function",
+                  "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                  "longestInputPinText": "",
+                  "longestOutputPinText": "",
+                  "isEndPointDirty": false,
+                  "hasOverRiddenConditions": false,
+                  "conditionsConfigurationVariables": [],
+                  "isEncrypted": false
+                }
+              },
+              "output": {
+                "circleData": {
+                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                  "dataType": "integer",
+                  "name": "i2",
+                  "path": "aspects.ControlConnection.i2",
+                  "connected": true
+                },
+                "asset": {
+                  "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                  "assetVersion": "3.0.0",
+                  "assetName": "Calc",
+                  "assetDescription": "",
+                  "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                  "position": { "x": 158, "y": 141.1999969482422 },
+                  "scale": 1,
+                  "isOpen": true,
+                  "outputs": [
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                      "dataType": "integer",
+                      "name": "i1",
+                      "path": "aspects.ControlConnection.i1",
+                      "connected": true
+                    },
+                    "[Circular Reference]",
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                      "dataType": "integer",
+                      "name": "i3",
+                      "path": "aspects.ControlConnection.i3",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                      "dataType": "integer",
+                      "name": "i5",
+                      "path": "aspects.ControlConnection.i5",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                      "dataType": "integer",
+                      "name": "i6",
+                      "path": "aspects.ControlConnection.i6",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                      "dataType": "integer",
+                      "name": "i7",
+                      "path": "aspects.ControlConnection.i7",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                      "dataType": "integer",
+                      "name": "i8",
+                      "path": "aspects.ControlConnection.i8",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                      "dataType": "integer",
+                      "name": "i9",
+                      "path": "aspects.ControlConnection.i9",
+                      "connected": false
+                    }
+                  ],
+                  "assetType": "abb.controlSystem.800xA.aspectObject",
+                  "objectInstance": false,
+                  "isReferencedType": false
+                }
+              },
+              "trigger": false,
+              "tooltip": "Initial Value: 0",
+              "historicalDataTrigger": false
+            },
+            {
+              "input": {
+                "circleData": {
+                  "name": "Input1",
+                  "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                  "path": "test2Function170723_0.inputs.Input1",
+                  "dataType": "array_integer",
+                  "connected": true,
+                  "mappingDetails": [
+                    {
+                      "input": {
+                        "circleData": {
+                          "name": "Input1",
+                          "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                          "path": "test2Function170723_0.inputs.Input1",
+                          "dataType": "array_integer",
+                          "connected": true,
+                          "defaultValue": "0"
+                        },
+                        "asset": {
+                          "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                          "assetVersion": "1.0.0",
+                          "assetName": "test2Function170723",
+                          "assetDescription": "test2Function170723",
+                          "nodeId": "test2Function170723_0",
+                          "position": { "x": 597.0021857923497, "y": 413 },
+                          "scale": 1,
+                          "isOpen": true,
+                          "inputs": [
+                            {
+                              "name": "Input0",
+                              "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                              "path": "test2Function170723_0.inputs.Input0",
+                              "dataType": "boolean",
+                              "connected": false
+                            },
+                            "[Circular Reference]",
+                            {
+                              "name": "Input2",
+                              "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                              "path": "test2Function170723_0.inputs.Input2",
+                              "dataType": "integer",
+                              "connected": false
+                            }
+                          ],
+                          "outputs": [
+                            {
+                              "name": "severity",
+                              "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                              "path": "test2Function170723_0.outputs.severity",
+                              "dataType": "integer",
+                              "connected": false,
+                              "isPublished": false
+                            }
+                          ],
+                          "inhibits": [
+                            {
+                              "name": "referenceValue",
+                              "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                              "path": "test2Function170723_0.inhibit.referenceValue",
+                              "dataType": "boolean",
+                              "connected": false
+                            },
+                            {
+                              "name": "actualValue",
+                              "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                              "path": "test2Function170723_0.inhibit.actualValue",
+                              "dataType": "boolean",
+                              "connected": false
+                            }
+                          ],
+                          "alias": {
+                            "Input0": {
+                              "dataType": "string",
+                              "value": "Input0"
+                            },
+                            "Input1": {
+                              "dataType": "string",
+                              "value": "Input1"
+                            },
+                            "Input2": {
+                              "dataType": "string",
+                              "value": "Input2"
+                            },
+                            "severity": {
+                              "dataType": "string",
+                              "value": "severity"
+                            }
+                          },
+                          "alarmInputs": [],
+                          "eventInputs": [],
+                          "alarmPins": { "isPublished": false },
+                          "conditions": {
+                            "State1": {
+                              "subConditions": {
+                                "subCondition0": {
+                                  "description": {
+                                    "dataType": "string",
+                                    "isDirty": false
+                                  },
+                                  "severity": {
+                                    "dataType": "integer",
+                                    "value": 100,
+                                    "isDirty": false
+                                  },
+                                  "possibleCause": {
+                                    "dataType": "string",
+                                    "isDirty": false
+                                  },
+                                  "suggestedAction": {
+                                    "dataType": "string",
+                                    "isDirty": false
+                                  },
+                                  "correctiveAction": {
+                                    "dataType": "string",
+                                    "isDirty": false
+                                  },
+                                  "logic": {
+                                    "dataType": "string",
+                                    "value": "$'Input2' < 10",
+                                    "isDirty": false
+                                  },
+                                  "status": {
+                                    "dataType": "string",
+                                    "isDirty": false
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "assetType": "abb.ability.conditioningMonitor.function",
+                          "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                          "longestInputPinText": "",
+                          "longestOutputPinText": "",
+                          "isEndPointDirty": false,
+                          "hasOverRiddenConditions": false,
+                          "conditionsConfigurationVariables": [],
+                          "isEncrypted": false
+                        }
+                      },
+                      "output": {
+                        "circleData": {
+                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                          "dataType": "integer",
+                          "name": "i2",
+                          "path": "aspects.ControlConnection.i2",
+                          "connected": true
+                        },
+                        "asset": {
+                          "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                          "assetVersion": "3.0.0",
+                          "assetName": "Calc",
+                          "assetDescription": "",
+                          "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                          "position": { "x": 158, "y": 141.1999969482422 },
+                          "scale": 1,
+                          "isOpen": true,
+                          "outputs": [
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                              "dataType": "integer",
+                              "name": "i1",
+                              "path": "aspects.ControlConnection.i1",
+                              "connected": true
+                            },
+                            "[Circular Reference]",
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                              "dataType": "integer",
+                              "name": "i3",
+                              "path": "aspects.ControlConnection.i3",
+                              "connected": false
+                            },
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                              "dataType": "integer",
+                              "name": "i5",
+                              "path": "aspects.ControlConnection.i5",
+                              "connected": false
+                            },
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                              "dataType": "integer",
+                              "name": "i6",
+                              "path": "aspects.ControlConnection.i6",
+                              "connected": false
+                            },
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                              "dataType": "integer",
+                              "name": "i7",
+                              "path": "aspects.ControlConnection.i7",
+                              "connected": false
+                            },
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                              "dataType": "integer",
+                              "name": "i8",
+                              "path": "aspects.ControlConnection.i8",
+                              "connected": false
+                            },
+                            {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                              "dataType": "integer",
+                              "name": "i9",
+                              "path": "aspects.ControlConnection.i9",
+                              "connected": false
+                            }
+                          ],
+                          "assetType": "abb.controlSystem.800xA.aspectObject",
+                          "objectInstance": false,
+                          "isReferencedType": false
+                        }
+                      }
+                    }
+                  ],
+                  "defaultValue": "0,0"
+                },
+                "asset": {
+                  "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                  "assetVersion": "1.0.0",
+                  "assetName": "test2Function170723",
+                  "assetDescription": "test2Function170723",
+                  "nodeId": "test2Function170723_0",
+                  "position": { "x": 597.0021857923497, "y": 413 },
+                  "scale": 1,
+                  "isOpen": true,
+                  "inputs": [
+                    {
+                      "name": "Input0",
+                      "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                      "path": "test2Function170723_0.inputs.Input0",
+                      "dataType": "boolean",
+                      "connected": false,
+                      "mappingDetails": []
+                    },
+                    "[Circular Reference]",
+                    {
+                      "name": "Input2",
+                      "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                      "path": "test2Function170723_0.inputs.Input2",
+                      "dataType": "integer",
+                      "connected": false,
+                      "mappingDetails": []
+                    }
+                  ],
+                  "outputs": [
+                    {
+                      "name": "severity",
+                      "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                      "path": "test2Function170723_0.outputs.severity",
+                      "dataType": "integer",
+                      "connected": false,
+                      "isPublished": false
+                    }
+                  ],
+                  "inhibits": [
+                    {
+                      "name": "referenceValue",
+                      "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                      "path": "test2Function170723_0.inhibit.referenceValue",
+                      "dataType": "boolean",
+                      "connected": false,
+                      "mappingDetails": []
+                    },
+                    {
+                      "name": "actualValue",
+                      "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                      "path": "test2Function170723_0.inhibit.actualValue",
+                      "dataType": "boolean",
+                      "connected": false,
+                      "mappingDetails": []
+                    }
+                  ],
+                  "alias": {
+                    "Input0": { "dataType": "string", "value": "Input0" },
+                    "Input1": { "dataType": "string", "value": "Input1" },
+                    "Input2": { "dataType": "string", "value": "Input2" },
+                    "severity": { "dataType": "string", "value": "severity" }
+                  },
+                  "alarmInputs": [],
+                  "eventInputs": [],
+                  "alarmPins": { "isPublished": false },
+                  "conditions": {
+                    "State1": {
+                      "subConditions": {
+                        "subCondition0": {
+                          "description": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "severity": {
+                            "dataType": "integer",
+                            "value": 100,
+                            "isDirty": false
+                          },
+                          "possibleCause": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "suggestedAction": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "correctiveAction": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "logic": {
+                            "dataType": "string",
+                            "value": "$'Input2' < 10",
+                            "isDirty": false
+                          },
+                          "status": { "dataType": "string", "isDirty": false }
+                        }
+                      }
+                    }
+                  },
+                  "assetType": "abb.ability.conditioningMonitor.function",
+                  "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                  "longestInputPinText": "",
+                  "longestOutputPinText": "",
+                  "isEndPointDirty": false,
+                  "hasOverRiddenConditions": false,
+                  "conditionsConfigurationVariables": [],
+                  "isEncrypted": false
+                }
+              },
+              "output": {
+                "circleData": {
+                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                  "dataType": "integer",
+                  "name": "i3",
+                  "path": "aspects.ControlConnection.i3",
+                  "connected": true
+                },
+                "asset": {
+                  "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                  "assetVersion": "3.0.0",
+                  "assetName": "Calc",
+                  "assetDescription": "",
+                  "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                  "position": { "x": 158, "y": 141.1999969482422 },
+                  "scale": 1,
+                  "isOpen": true,
+                  "outputs": [
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                      "dataType": "integer",
+                      "name": "i1",
+                      "path": "aspects.ControlConnection.i1",
+                      "connected": true
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                      "dataType": "integer",
+                      "name": "i2",
+                      "path": "aspects.ControlConnection.i2",
+                      "connected": false
+                    },
+                    "[Circular Reference]",
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                      "dataType": "integer",
+                      "name": "i5",
+                      "path": "aspects.ControlConnection.i5",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                      "dataType": "integer",
+                      "name": "i6",
+                      "path": "aspects.ControlConnection.i6",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                      "dataType": "integer",
+                      "name": "i7",
+                      "path": "aspects.ControlConnection.i7",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                      "dataType": "integer",
+                      "name": "i8",
+                      "path": "aspects.ControlConnection.i8",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                      "dataType": "integer",
+                      "name": "i9",
+                      "path": "aspects.ControlConnection.i9",
+                      "connected": false
+                    }
+                  ],
+                  "assetType": "abb.controlSystem.800xA.aspectObject",
+                  "objectInstance": false,
+                  "isReferencedType": false
+                }
+              },
+              "trigger": false,
+              "tooltip": "Initial Value: 0",
+              "historicalDataTrigger": false
+            }
+          ],
+          "defaultValue": "0,0",
+          "trigger": false
+        },
+        {
+          "name": "Input2",
+          "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+          "path": "test2Function170723_0.inputs.Input2",
+          "dataType": "integer",
+          "connected": true,
+          "mappingDetails": [
+            {
+              "input": {
+                "circleData": {
+                  "name": "Input2",
+                  "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                  "path": "test2Function170723_0.inputs.Input2",
+                  "dataType": "integer",
+                  "connected": true,
+                  "mappingDetails": [],
+                  "defaultValue": "0"
+                },
+                "asset": {
+                  "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                  "assetVersion": "1.0.0",
+                  "assetName": "test2Function170723",
+                  "assetDescription": "test2Function170723",
+                  "nodeId": "test2Function170723_0",
+                  "position": { "x": 597.0021857923497, "y": 413 },
+                  "scale": 1,
+                  "isOpen": true,
+                  "inputs": [
+                    {
+                      "name": "Input0",
+                      "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                      "path": "test2Function170723_0.inputs.Input0",
+                      "dataType": "boolean",
+                      "connected": false,
+                      "mappingDetails": []
+                    },
+                    {
+                      "name": "Input1",
+                      "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                      "path": "test2Function170723_0.inputs.Input1",
+                      "dataType": "array_integer",
+                      "connected": true,
+                      "mappingDetails": [
+                        {
+                          "input": {
+                            "circleData": {
+                              "name": "Input1",
+                              "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                              "path": "test2Function170723_0.inputs.Input1",
+                              "dataType": "array_integer",
+                              "connected": true,
+                              "defaultValue": "0"
+                            },
+                            "asset": {
+                              "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                              "assetVersion": "1.0.0",
+                              "assetName": "test2Function170723",
+                              "assetDescription": "test2Function170723",
+                              "nodeId": "test2Function170723_0",
+                              "position": { "x": 597.0021857923497, "y": 413 },
+                              "scale": 1,
+                              "isOpen": true,
+                              "inputs": [
+                                {
+                                  "name": "Input0",
+                                  "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                                  "path": "test2Function170723_0.inputs.Input0",
+                                  "dataType": "boolean",
+                                  "connected": false
+                                },
+                                "[Circular Reference]",
+                                {
+                                  "name": "Input2",
+                                  "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                                  "path": "test2Function170723_0.inputs.Input2",
+                                  "dataType": "integer",
+                                  "connected": false
+                                }
+                              ],
+                              "outputs": [
+                                {
+                                  "name": "severity",
+                                  "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                                  "path": "test2Function170723_0.outputs.severity",
+                                  "dataType": "integer",
+                                  "connected": false,
+                                  "isPublished": false
+                                }
+                              ],
+                              "inhibits": [
+                                {
+                                  "name": "referenceValue",
+                                  "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                                  "path": "test2Function170723_0.inhibit.referenceValue",
+                                  "dataType": "boolean",
+                                  "connected": false
+                                },
+                                {
+                                  "name": "actualValue",
+                                  "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                                  "path": "test2Function170723_0.inhibit.actualValue",
+                                  "dataType": "boolean",
+                                  "connected": false
+                                }
+                              ],
+                              "alias": {
+                                "Input0": {
+                                  "dataType": "string",
+                                  "value": "Input0"
+                                },
+                                "Input1": {
+                                  "dataType": "string",
+                                  "value": "Input1"
+                                },
+                                "Input2": {
+                                  "dataType": "string",
+                                  "value": "Input2"
+                                },
+                                "severity": {
+                                  "dataType": "string",
+                                  "value": "severity"
+                                }
+                              },
+                              "alarmInputs": [],
+                              "eventInputs": [],
+                              "alarmPins": { "isPublished": false },
+                              "conditions": {
+                                "State1": {
+                                  "subConditions": {
+                                    "subCondition0": {
+                                      "description": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "severity": {
+                                        "dataType": "integer",
+                                        "value": 100,
+                                        "isDirty": false
+                                      },
+                                      "possibleCause": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "suggestedAction": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "correctiveAction": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "logic": {
+                                        "dataType": "string",
+                                        "value": "$'Input2' < 10",
+                                        "isDirty": false
+                                      },
+                                      "status": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "assetType": "abb.ability.conditioningMonitor.function",
+                              "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                              "longestInputPinText": "",
+                              "longestOutputPinText": "",
+                              "isEndPointDirty": false,
+                              "hasOverRiddenConditions": false,
+                              "conditionsConfigurationVariables": [],
+                              "isEncrypted": false
+                            }
+                          },
+                          "output": {
+                            "circleData": {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                              "dataType": "integer",
+                              "name": "i2",
+                              "path": "aspects.ControlConnection.i2",
+                              "connected": true
+                            },
+                            "asset": {
+                              "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                              "assetVersion": "3.0.0",
+                              "assetName": "Calc",
+                              "assetDescription": "",
+                              "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                              "position": { "x": 158, "y": 141.1999969482422 },
+                              "scale": 1,
+                              "isOpen": true,
+                              "outputs": [
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                                  "dataType": "integer",
+                                  "name": "i1",
+                                  "path": "aspects.ControlConnection.i1",
+                                  "connected": true
+                                },
+                                "[Circular Reference]",
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                                  "dataType": "integer",
+                                  "name": "i3",
+                                  "path": "aspects.ControlConnection.i3",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                                  "dataType": "integer",
+                                  "name": "i5",
+                                  "path": "aspects.ControlConnection.i5",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                                  "dataType": "integer",
+                                  "name": "i6",
+                                  "path": "aspects.ControlConnection.i6",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                                  "dataType": "integer",
+                                  "name": "i7",
+                                  "path": "aspects.ControlConnection.i7",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                                  "dataType": "integer",
+                                  "name": "i8",
+                                  "path": "aspects.ControlConnection.i8",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                                  "dataType": "integer",
+                                  "name": "i9",
+                                  "path": "aspects.ControlConnection.i9",
+                                  "connected": false
+                                }
+                              ],
+                              "assetType": "abb.controlSystem.800xA.aspectObject",
+                              "objectInstance": false,
+                              "isReferencedType": false
+                            }
+                          },
+                          "tooltip": "Initial Value: 0",
+                          "historicalDataTrigger": true
+                        },
+                        {
+                          "input": {
+                            "circleData": {
+                              "name": "Input1",
+                              "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                              "path": "test2Function170723_0.inputs.Input1",
+                              "dataType": "array_integer",
+                              "connected": true,
+                              "mappingDetails": [
+                                {
+                                  "input": {
+                                    "circleData": {
+                                      "name": "Input1",
+                                      "id": "#/properties/functions/test2Function170723_0/inputs/Input1",
+                                      "path": "test2Function170723_0.inputs.Input1",
+                                      "dataType": "array_integer",
+                                      "connected": true,
+                                      "defaultValue": "0"
+                                    },
+                                    "asset": {
+                                      "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                                      "assetVersion": "1.0.0",
+                                      "assetName": "test2Function170723",
+                                      "assetDescription": "test2Function170723",
+                                      "nodeId": "test2Function170723_0",
+                                      "position": {
+                                        "x": 597.0021857923497,
+                                        "y": 413
+                                      },
+                                      "scale": 1,
+                                      "isOpen": true,
+                                      "inputs": [
+                                        {
+                                          "name": "Input0",
+                                          "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                                          "path": "test2Function170723_0.inputs.Input0",
+                                          "dataType": "boolean",
+                                          "connected": false
+                                        },
+                                        "[Circular Reference]",
+                                        {
+                                          "name": "Input2",
+                                          "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                                          "path": "test2Function170723_0.inputs.Input2",
+                                          "dataType": "integer",
+                                          "connected": false
+                                        }
+                                      ],
+                                      "outputs": [
+                                        {
+                                          "name": "severity",
+                                          "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                                          "path": "test2Function170723_0.outputs.severity",
+                                          "dataType": "integer",
+                                          "connected": false,
+                                          "isPublished": false
+                                        }
+                                      ],
+                                      "inhibits": [
+                                        {
+                                          "name": "referenceValue",
+                                          "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                                          "path": "test2Function170723_0.inhibit.referenceValue",
+                                          "dataType": "boolean",
+                                          "connected": false
+                                        },
+                                        {
+                                          "name": "actualValue",
+                                          "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                                          "path": "test2Function170723_0.inhibit.actualValue",
+                                          "dataType": "boolean",
+                                          "connected": false
+                                        }
+                                      ],
+                                      "alias": {
+                                        "Input0": {
+                                          "dataType": "string",
+                                          "value": "Input0"
+                                        },
+                                        "Input1": {
+                                          "dataType": "string",
+                                          "value": "Input1"
+                                        },
+                                        "Input2": {
+                                          "dataType": "string",
+                                          "value": "Input2"
+                                        },
+                                        "severity": {
+                                          "dataType": "string",
+                                          "value": "severity"
+                                        }
+                                      },
+                                      "alarmInputs": [],
+                                      "eventInputs": [],
+                                      "alarmPins": { "isPublished": false },
+                                      "conditions": {
+                                        "State1": {
+                                          "subConditions": {
+                                            "subCondition0": {
+                                              "description": {
+                                                "dataType": "string",
+                                                "isDirty": false
+                                              },
+                                              "severity": {
+                                                "dataType": "integer",
+                                                "value": 100,
+                                                "isDirty": false
+                                              },
+                                              "possibleCause": {
+                                                "dataType": "string",
+                                                "isDirty": false
+                                              },
+                                              "suggestedAction": {
+                                                "dataType": "string",
+                                                "isDirty": false
+                                              },
+                                              "correctiveAction": {
+                                                "dataType": "string",
+                                                "isDirty": false
+                                              },
+                                              "logic": {
+                                                "dataType": "string",
+                                                "value": "$'Input2' < 10",
+                                                "isDirty": false
+                                              },
+                                              "status": {
+                                                "dataType": "string",
+                                                "isDirty": false
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "assetType": "abb.ability.conditioningMonitor.function",
+                                      "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                                      "longestInputPinText": "",
+                                      "longestOutputPinText": "",
+                                      "isEndPointDirty": false,
+                                      "hasOverRiddenConditions": false,
+                                      "conditionsConfigurationVariables": [],
+                                      "isEncrypted": false
+                                    }
+                                  },
+                                  "output": {
+                                    "circleData": {
+                                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                                      "dataType": "integer",
+                                      "name": "i2",
+                                      "path": "aspects.ControlConnection.i2",
+                                      "connected": true
+                                    },
+                                    "asset": {
+                                      "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                                      "assetVersion": "3.0.0",
+                                      "assetName": "Calc",
+                                      "assetDescription": "",
+                                      "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                                      "position": {
+                                        "x": 158,
+                                        "y": 141.1999969482422
+                                      },
+                                      "scale": 1,
+                                      "isOpen": true,
+                                      "outputs": [
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                                          "dataType": "integer",
+                                          "name": "i1",
+                                          "path": "aspects.ControlConnection.i1",
+                                          "connected": true
+                                        },
+                                        "[Circular Reference]",
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                                          "dataType": "integer",
+                                          "name": "i3",
+                                          "path": "aspects.ControlConnection.i3",
+                                          "connected": false
+                                        },
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                                          "dataType": "integer",
+                                          "name": "i5",
+                                          "path": "aspects.ControlConnection.i5",
+                                          "connected": false
+                                        },
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                                          "dataType": "integer",
+                                          "name": "i6",
+                                          "path": "aspects.ControlConnection.i6",
+                                          "connected": false
+                                        },
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                                          "dataType": "integer",
+                                          "name": "i7",
+                                          "path": "aspects.ControlConnection.i7",
+                                          "connected": false
+                                        },
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                                          "dataType": "integer",
+                                          "name": "i8",
+                                          "path": "aspects.ControlConnection.i8",
+                                          "connected": false
+                                        },
+                                        {
+                                          "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                                          "dataType": "integer",
+                                          "name": "i9",
+                                          "path": "aspects.ControlConnection.i9",
+                                          "connected": false
+                                        }
+                                      ],
+                                      "assetType": "abb.controlSystem.800xA.aspectObject",
+                                      "objectInstance": false,
+                                      "isReferencedType": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "defaultValue": "0,0"
+                            },
+                            "asset": {
+                              "assetRef": "abb.local.test2Function170723.TenantId.2891fe10-3b6e-413a-b442-facc546ad89c@1",
+                              "assetVersion": "1.0.0",
+                              "assetName": "test2Function170723",
+                              "assetDescription": "test2Function170723",
+                              "nodeId": "test2Function170723_0",
+                              "position": { "x": 597.0021857923497, "y": 413 },
+                              "scale": 1,
+                              "isOpen": true,
+                              "inputs": [
+                                {
+                                  "name": "Input0",
+                                  "id": "#/properties/functions/test2Function170723_0/inputs/Input0",
+                                  "path": "test2Function170723_0.inputs.Input0",
+                                  "dataType": "boolean",
+                                  "connected": false,
+                                  "mappingDetails": []
+                                },
+                                "[Circular Reference]",
+                                {
+                                  "name": "Input2",
+                                  "id": "#/properties/functions/test2Function170723_0/inputs/Input2",
+                                  "path": "test2Function170723_0.inputs.Input2",
+                                  "dataType": "integer",
+                                  "connected": false,
+                                  "mappingDetails": []
+                                }
+                              ],
+                              "outputs": [
+                                {
+                                  "name": "severity",
+                                  "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                                  "path": "test2Function170723_0.outputs.severity",
+                                  "dataType": "integer",
+                                  "connected": false,
+                                  "isPublished": false
+                                }
+                              ],
+                              "inhibits": [
+                                {
+                                  "name": "referenceValue",
+                                  "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                                  "path": "test2Function170723_0.inhibit.referenceValue",
+                                  "dataType": "boolean",
+                                  "connected": false,
+                                  "mappingDetails": []
+                                },
+                                {
+                                  "name": "actualValue",
+                                  "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                                  "path": "test2Function170723_0.inhibit.actualValue",
+                                  "dataType": "boolean",
+                                  "connected": false,
+                                  "mappingDetails": []
+                                }
+                              ],
+                              "alias": {
+                                "Input0": {
+                                  "dataType": "string",
+                                  "value": "Input0"
+                                },
+                                "Input1": {
+                                  "dataType": "string",
+                                  "value": "Input1"
+                                },
+                                "Input2": {
+                                  "dataType": "string",
+                                  "value": "Input2"
+                                },
+                                "severity": {
+                                  "dataType": "string",
+                                  "value": "severity"
+                                }
+                              },
+                              "alarmInputs": [],
+                              "eventInputs": [],
+                              "alarmPins": { "isPublished": false },
+                              "conditions": {
+                                "State1": {
+                                  "subConditions": {
+                                    "subCondition0": {
+                                      "description": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "severity": {
+                                        "dataType": "integer",
+                                        "value": 100,
+                                        "isDirty": false
+                                      },
+                                      "possibleCause": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "suggestedAction": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "correctiveAction": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      },
+                                      "logic": {
+                                        "dataType": "string",
+                                        "value": "$'Input2' < 10",
+                                        "isDirty": false
+                                      },
+                                      "status": {
+                                        "dataType": "string",
+                                        "isDirty": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "assetType": "abb.ability.conditioningMonitor.function",
+                              "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                              "longestInputPinText": "",
+                              "longestOutputPinText": "",
+                              "isEndPointDirty": false,
+                              "hasOverRiddenConditions": false,
+                              "conditionsConfigurationVariables": [],
+                              "isEncrypted": false
+                            }
+                          },
+                          "output": {
+                            "circleData": {
+                              "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                              "dataType": "integer",
+                              "name": "i3",
+                              "path": "aspects.ControlConnection.i3",
+                              "connected": true
+                            },
+                            "asset": {
+                              "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                              "assetVersion": "3.0.0",
+                              "assetName": "Calc",
+                              "assetDescription": "",
+                              "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                              "position": { "x": 158, "y": 141.1999969482422 },
+                              "scale": 1,
+                              "isOpen": true,
+                              "outputs": [
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                                  "dataType": "integer",
+                                  "name": "i1",
+                                  "path": "aspects.ControlConnection.i1",
+                                  "connected": true
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                                  "dataType": "integer",
+                                  "name": "i2",
+                                  "path": "aspects.ControlConnection.i2",
+                                  "connected": false
+                                },
+                                "[Circular Reference]",
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                                  "dataType": "integer",
+                                  "name": "i5",
+                                  "path": "aspects.ControlConnection.i5",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                                  "dataType": "integer",
+                                  "name": "i6",
+                                  "path": "aspects.ControlConnection.i6",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                                  "dataType": "integer",
+                                  "name": "i7",
+                                  "path": "aspects.ControlConnection.i7",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                                  "dataType": "integer",
+                                  "name": "i8",
+                                  "path": "aspects.ControlConnection.i8",
+                                  "connected": false
+                                },
+                                {
+                                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                                  "dataType": "integer",
+                                  "name": "i9",
+                                  "path": "aspects.ControlConnection.i9",
+                                  "connected": false
+                                }
+                              ],
+                              "assetType": "abb.controlSystem.800xA.aspectObject",
+                              "objectInstance": false,
+                              "isReferencedType": false
+                            }
+                          }
+                        }
+                      ],
+                      "defaultValue": "0,0",
+                      "trigger": false
+                    },
+                    "[Circular Reference]"
+                  ],
+                  "outputs": [
+                    {
+                      "name": "severity",
+                      "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+                      "path": "test2Function170723_0.outputs.severity",
+                      "dataType": "integer",
+                      "connected": false,
+                      "isPublished": false
+                    }
+                  ],
+                  "inhibits": [
+                    {
+                      "name": "referenceValue",
+                      "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+                      "path": "test2Function170723_0.inhibit.referenceValue",
+                      "dataType": "boolean",
+                      "connected": false,
+                      "mappingDetails": []
+                    },
+                    {
+                      "name": "actualValue",
+                      "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+                      "path": "test2Function170723_0.inhibit.actualValue",
+                      "dataType": "boolean",
+                      "connected": false,
+                      "mappingDetails": []
+                    }
+                  ],
+                  "alias": {
+                    "Input0": { "dataType": "string", "value": "Input0" },
+                    "Input1": { "dataType": "string", "value": "Input1" },
+                    "Input2": { "dataType": "string", "value": "Input2" },
+                    "severity": { "dataType": "string", "value": "severity" }
+                  },
+                  "alarmInputs": [],
+                  "eventInputs": [],
+                  "alarmPins": { "isPublished": false },
+                  "conditions": {
+                    "State1": {
+                      "subConditions": {
+                        "subCondition0": {
+                          "description": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "severity": {
+                            "dataType": "integer",
+                            "value": 100,
+                            "isDirty": false
+                          },
+                          "possibleCause": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "suggestedAction": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "correctiveAction": {
+                            "dataType": "string",
+                            "isDirty": false
+                          },
+                          "logic": {
+                            "dataType": "string",
+                            "value": "$'Input2' < 10",
+                            "isDirty": false
+                          },
+                          "status": { "dataType": "string", "isDirty": false }
+                        }
+                      }
+                    }
+                  },
+                  "assetType": "abb.ability.conditioningMonitor.function",
+                  "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+                  "longestInputPinText": "",
+                  "longestOutputPinText": "",
+                  "isEndPointDirty": false,
+                  "hasOverRiddenConditions": false,
+                  "conditionsConfigurationVariables": [],
+                  "isEncrypted": false
+                }
+              },
+              "output": {
+                "circleData": {
+                  "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i6",
+                  "dataType": "integer",
+                  "name": "i6",
+                  "path": "aspects.ControlConnection.i6",
+                  "connected": true
+                },
+                "asset": {
+                  "assetRef": "abb.controlSystem.800xA.aspectObject.68363f7a_b706_465f_99c9_6870550c80b6.Calc@3",
+                  "assetVersion": "3.0.0",
+                  "assetName": "Calc",
+                  "assetDescription": "",
+                  "nodeId": "a1b63eb2-8489-4eaf-9509-b93f917ce40a",
+                  "position": { "x": 158, "y": 141.1999969482422 },
+                  "scale": 1,
+                  "isOpen": true,
+                  "outputs": [
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i1",
+                      "dataType": "integer",
+                      "name": "i1",
+                      "path": "aspects.ControlConnection.i1",
+                      "connected": true
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i2",
+                      "dataType": "integer",
+                      "name": "i2",
+                      "path": "aspects.ControlConnection.i2",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i3",
+                      "dataType": "integer",
+                      "name": "i3",
+                      "path": "aspects.ControlConnection.i3",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i5",
+                      "dataType": "integer",
+                      "name": "i5",
+                      "path": "aspects.ControlConnection.i5",
+                      "connected": false
+                    },
+                    "[Circular Reference]",
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i7",
+                      "dataType": "integer",
+                      "name": "i7",
+                      "path": "aspects.ControlConnection.i7",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i8",
+                      "dataType": "integer",
+                      "name": "i8",
+                      "path": "aspects.ControlConnection.i8",
+                      "connected": false
+                    },
+                    {
+                      "id": "a1b63eb2-8489-4eaf-9509-b93f917ce40a#abb.controlSystem.800xA.aspectObject/variables/aspects/ControlConnection/i9",
+                      "dataType": "integer",
+                      "name": "i9",
+                      "path": "aspects.ControlConnection.i9",
+                      "connected": false
+                    }
+                  ],
+                  "assetType": "abb.controlSystem.800xA.aspectObject",
+                  "objectInstance": false,
+                  "isReferencedType": false
+                }
+              }
+            }
+          ],
+          "defaultValue": "0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "severity",
+          "id": "#/properties/functions/test2Function170723_0/outputs/severity",
+          "path": "test2Function170723_0.outputs.severity",
+          "dataType": "integer",
+          "connected": true,
+          "isPublished": true
+        }
+      ],
+      "inhibits": [
+        {
+          "name": "referenceValue",
+          "id": "#/properties/functions/test2Function170723_0/inhibit/referenceValue",
+          "path": "test2Function170723_0.inhibit.referenceValue",
+          "dataType": "boolean",
+          "connected": false,
+          "mappingDetails": []
+        },
+        {
+          "name": "actualValue",
+          "id": "#/properties/functions/test2Function170723_0/inhibit/actualValue",
+          "path": "test2Function170723_0.inhibit.actualValue",
+          "dataType": "boolean",
+          "connected": false,
+          "mappingDetails": []
+        }
+      ],
+      "alias": {
+        "Input0": { "dataType": "string", "value": "Input0" },
+        "Input1": { "dataType": "string", "value": "Input1" },
+        "Input2": { "dataType": "string", "value": "Input2" },
+        "severity": { "dataType": "string", "value": "severity" }
+      },
+      "alarmInputs": [],
+      "eventInputs": [],
+      "alarmPins": { "isPublished": false },
+      "conditions": {
+        "State1": {
+          "subConditions": {
+            "subCondition0": {
+              "description": { "dataType": "string", "isDirty": false },
+              "severity": {
+                "dataType": "integer",
+                "value": 100,
+                "isDirty": false
+              },
+              "possibleCause": { "dataType": "string", "isDirty": false },
+              "suggestedAction": { "dataType": "string", "isDirty": false },
+              "correctiveAction": { "dataType": "string", "isDirty": false },
+              "logic": {
+                "dataType": "string",
+                "value": "$'Input2' < 10",
+                "isDirty": false
+              },
+              "status": { "dataType": "string", "isDirty": false }
+            }
+          }
+        }
+      },
+      "assetType": "abb.ability.conditioningMonitor.function",
+      "endpoint": "http://rbemodule:5003/api/Evaluation/evaluate",
+      "longestInputPinText": "",
+      "longestOutputPinText": "",
+      "isEndPointDirty": false,
+      "hasOverRiddenConditions": false,
+      "conditionsConfigurationVariables": ["subCondition", "description"],
+      "isEncrypted": false
+    },
+    {
+      "assetRef": "abb.ability.function.overallSeverity@1",
+      "assetVersion": "1.2.0",
+      "assetName": "OverallSeverity",
+      "assetDescription": "Calculate the over all severity from the given severity inputs",
+      "nodeId": "OverallSeverity_0",
+      "position": { "x": 1140.5, "y": 398 },
+      "scale": 1,
+      "isOpen": true,
+      "inputs": [
+        {
+          "name": "severityValues",
+          "id": "#/properties/functions/OverallSeverity_0/inputs/severityValues",
+          "path": "OverallSeverity_0.inputs.severityValues",
+          "dataType": "array_integer",
+          "connected": true,
+          "mappingDetails": []
+        }
+      ],
+      "outputs": [
+        {
+          "name": "overallSeverity",
+          "id": "#/properties/functions/OverallSeverity_0/outputs/overallSeverity",
+          "path": "OverallSeverity_0.outputs.overallSeverity",
+          "dataType": "integer",
+          "connected": false,
+          "isPublished": true
+        }
+      ],
+      "inhibits": [
+        {
+          "name": "referenceValue",
+          "id": "#/properties/functions/OverallSeverity_0/inhibit/referenceValue",
+          "path": "OverallSeverity_0.inhibit.referenceValue",
+          "dataType": "boolean",
+          "connected": false,
+          "mappingDetails": []
+        },
+        {
+          "name": "actualValue",
+          "id": "#/properties/functions/OverallSeverity_0/inhibit/actualValue",
+          "path": "OverallSeverity_0.inhibit.actualValue",
+          "dataType": "boolean",
+          "connected": false,
+          "mappingDetails": []
+        }
+      ],
+      "alias": {},
+      "alarmInputs": [],
+      "eventInputs": [],
+      "alarmPins": { "isPublished": false },
+      "assetType": "abb.ability.conditioningMonitor.function",
+      "endpoint": "http://rbemodule:5003/api/Evaluation/overallSeverity",
+      "longestInputPinText": "",
+      "longestOutputPinText": "",
+      "isEndPointDirty": false,
+      "hasOverRiddenConditions": false,
+      "conditionsConfigurationVariables": [],
+      "isEncrypted": true
+    }
+  ],
+  "connectionData": [
+    {
+      "output": "[Circular Reference]",
+      "input": "[Circular Reference]",
+      "trigger": false,
+      "tooltip": "Initial Value: 0"
+    },
+    {
+      "input": "[Circular Reference]",
+      "output": "[Circular Reference]",
+      "trigger": false,
+      "tooltip": "Initial Value: 0",
+      "historicalDataTrigger": false
+    },
+    {
+      "input": "[Circular Reference]",
+      "output": "[Circular Reference]",
+      "trigger": false,
+      "tooltip": "Initial Value: 0",
+      "historicalDataTrigger": false
+    },
+    {
+      "input": "[Circular Reference]",
+      "output": "[Circular Reference]",
+      "tooltip": "Initial Value: 0"
+    },
+    {
+      "output": {
+        "asset": "[Circular Reference]",
+        "circleData": "[Circular Reference]",
+        "tooltip": "test2Function170723_0.outputs.severity"
+      },
+      "input": {
+        "asset": "[Circular Reference]",
+        "circleData": "[Circular Reference]",
+        "tooltip": "OverallSeverity_0.inputs.severityValues"
+      },
+      "trigger": true,
+      "historicalDataTrigger": false
+    },
+    {
+      "output": {
+        "asset": "[Circular Reference]",
+        "circleData": "[Circular Reference]",
+        "tooltip": "testFunction170723_0.outputs.Calculation1"
+      },
+      "input": "[Circular Reference]",
+      "trigger": true,
+      "historicalDataTrigger": false
     }
   ]
 }

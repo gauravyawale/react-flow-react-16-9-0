@@ -1,9 +1,5 @@
 import { nanoid } from "nanoid";
-import {
-  HANDLE_SPACING,
-  IN_CONNECT_VALUES,
-  getRandomDataType,
-} from "./constants";
+import { HANDLE_SPACING, INHIBITS, getRandomDataType } from "./constants";
 
 export const createNodes = () => {
   const nodes = [];
@@ -25,9 +21,9 @@ export const createNodes = () => {
         isActual: j < 2,
         inputName:
           j === 0
-            ? IN_CONNECT_VALUES.REFERENCE_VALUE
+            ? INHIBITS.REFERENCE_VALUE
             : j === 1
-            ? IN_CONNECT_VALUES.ACTUAL_VALUE
+            ? INHIBITS.ACTUAL_VALUE
             : connectionData.type,
       };
       inputs.push(input);

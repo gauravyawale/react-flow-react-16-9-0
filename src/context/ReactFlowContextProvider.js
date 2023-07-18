@@ -5,13 +5,15 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { HANDLE_SPACING } from "../components/constants";
+import { ASSET_TYPES, HANDLE_SPACING } from "../components/constants";
 import {
   addEdge,
   applyEdgeChanges,
   applyNodeChanges,
   updateEdge,
 } from "react-flow-renderer";
+import { getAssetType } from "../components/helper";
+import { nanoid } from "nanoid";
 
 // Create the context
 export const ReactFlowContext = createContext();
@@ -22,7 +24,6 @@ export const ReactFlowContextProvider = ({ children }) => {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const edgeUpdateSuccessful = useRef(true);
-  const [copyEdges, setCopyEdges] = useState([]);
 
   useEffect(() => {
     // Retrieve nodes and edges data from localStorage when component mounts
@@ -334,7 +335,7 @@ export const ReactFlowContextProvider = ({ children }) => {
   );
 
   const handleCollapseExapnd = useCallback(
-    (nodeId, isCollapsed) => {
+    (nodeId, isCollapsed, isObject) => {
       let collapsedNode;
       const updatedNodes = nodes.map((node) => {
         if (node.id === nodeId) {
@@ -348,9 +349,12 @@ export const ReactFlowContextProvider = ({ children }) => {
               ...node.style,
               height: isCollapsed
                 ? "20px"
+                : isObject
+                ? node?.data?.assetData?.outputs?.length * HANDLE_SPACING +
+                  HANDLE_SPACING
                 : Math.max(
-                    node?.data?.input?.length,
-                    node?.data?.output?.length
+                    node?.data?.assetData?.inputs?.length + 2,
+                    node?.data?.assetData?.outputs?.length
                   ) *
                     HANDLE_SPACING +
                   HANDLE_SPACING,
@@ -404,6 +408,69 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes, edges]
   );
 
+  //useAvailableModelData
+
+  const addAvailableModelData = (modelData) => {
+    console.log("reached here model dat", modelData);
+    const updateNodesModelData = modelData?.assetData?.map((asset) => {
+      if (getAssetType(asset?.assetType) === ASSET_TYPES?.FUNCTION_TYPE) {
+        const functionNodeHeight =
+          Math.max(asset?.inputs?.length + 2, asset?.outputs?.length) *
+            HANDLE_SPACING +
+          HANDLE_SPACING;
+        return {
+          id: nanoid(),
+          type: "customNode",
+          data: {
+            assetData: asset,
+            tempIdOutput: "DNkgLBvtLfwJPiAsTmecL",
+            tempIdInput: "ez09XAeCodVc5JOokUOis",
+            label: asset?.assetName,
+            isCollapsed: false,
+          },
+          style: {
+            border: "1px solid #000",
+            borderRadius: 8,
+            padding: 10,
+            width: "150px",
+            height: functionNodeHeight,
+            backgroundColor: "rgba(255, 255, 255)",
+          },
+          position: {
+            x: asset?.position?.x,
+            y: asset?.position?.y,
+          },
+        };
+      }
+      const objectNodeHeight =
+        asset?.outputs?.length * HANDLE_SPACING + HANDLE_SPACING;
+      return {
+        id: nanoid(),
+        type: "customObjectNode",
+        data: {
+          assetData: asset,
+          tempIdOutput: "DNkgLBvtLfwJPiAsTmecL",
+          tempIdInput: "ez09XAeCodVc5JOokUOis",
+          label: asset?.assetName,
+          isCollapsed: false,
+        },
+        style: {
+          border: "1px solid #000",
+          borderRadius: 2,
+          padding: 10,
+          width: "100px",
+          height: objectNodeHeight,
+          backgroundColor: "rgba(255, 255, 255)",
+        },
+        position: {
+          x: asset?.position?.x,
+          y: asset?.position?.y,
+        },
+      };
+    });
+
+    setNodes(updateNodesModelData);
+  };
   // Provide the context values
   const contextValues = {
     nodes,
@@ -421,6 +488,7 @@ export const ReactFlowContextProvider = ({ children }) => {
     handleInputTrigger,
     handleAlarmTrigger,
     handleOutputPublish,
+    addAvailableModelData,
   };
 
   return (

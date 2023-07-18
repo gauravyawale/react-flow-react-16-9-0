@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./LeftSideMenu.css";
 import { nanoid } from "nanoid";
-import {
-  HANDLE_SPACING,
-  IN_CONNECT_VALUES,
-  getRandomDataType,
-} from "./constants";
+import { HANDLE_SPACING, INHIBITS, getRandomDataType } from "./constants";
 import { createNodes } from "./dumpNodes";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
@@ -19,8 +15,6 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
     // Retrieve functionsList from localStorage when component mounts
     const functionsList = localStorage.getItem("functionsList");
     if (functionsList?.length) setList(JSON.parse(functionsList));
-
-    console.log("here first");
   }, []);
 
   useEffect(() => {
@@ -48,36 +42,29 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
     const customOutputs = [];
 
     for (let i = 0; i < inputCount; i++) {
-      const connectionData = getRandomDataType();
+      const randomDataType = getRandomDataType();
       customInputs.push({
+        name: `Input${i}`,
         id: nanoid(),
-        type: "target",
-        position: "left",
-        dataType: i === 0 || i === 1 ? "Bool" : connectionData.type,
-        initalValue: i === 0 || i === 1 ? false : connectionData.value,
+        path: "",
+        dataType: randomDataType,
+        connected: false,
+        defaultValue: undefined,
         isTriggered: false,
-        isReferenced: i < 2 ? true : false,
-        isActual: i < 2 ? true : false,
-        inputName:
-          i === 0
-            ? IN_CONNECT_VALUES?.REFERENCE_VALUE
-            : i === 1
-            ? IN_CONNECT_VALUES?.ACTUAL_VALUE
-            : connectionData.type,
+        mappingDetails: [],
       });
     }
 
     for (let i = 0; i < outputCount; i++) {
-      const connectionData = getRandomDataType();
+      const randomDataType = getRandomDataType();
       customOutputs.push({
-        id: nanoid(),
-        type: "source",
-        position: "right",
-        dataType: i === 0 ? "Bool" : connectionData.type,
-        isPublished: false,
         isAlarmOutput: i === 0 ? true : false,
-        isAlarmOn: false,
-        outputName: i === 0 ? "Alarm" : connectionData.type,
+        name: `Calculation${i}`,
+        id: nanoid(),
+        path: "",
+        dataType: randomDataType,
+        connected: false,
+        isPublished: false,
       });
     }
     const newNode = {
@@ -85,8 +72,28 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
       type: "customNode",
 
       data: {
-        input: customInputs,
-        output: customOutputs,
+        assetData: {
+          inputs: customInputs,
+          outputs: customOutputs,
+          inhibits: [
+            {
+              name: "referenceValue",
+              id: nanoid(),
+              path: "",
+              dataType: "boolean",
+              connected: false,
+              mappingDetails: [],
+            },
+            {
+              name: "actualValue",
+              id: nanoid(),
+              path: "",
+              dataType: "boolean",
+              connected: false,
+              mappingDetails: [],
+            },
+          ],
+        },
         tempIdOutput: nanoid(),
         tempIdInput: nanoid(),
         label: "function " + (list.length + 1),
@@ -98,7 +105,8 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
         padding: 10,
         width: "100px",
         height:
-          Math.max(outputCount, inputCount) * HANDLE_SPACING + HANDLE_SPACING,
+          Math.max(outputCount, inputCount + 2) * HANDLE_SPACING +
+          HANDLE_SPACING,
         backgroundColor: "rgba(255, 255, 255)",
       },
       position: { x: 300, y: 50 },

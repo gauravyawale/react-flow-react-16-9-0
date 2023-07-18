@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-// import { NodeResizer } from "react-flow-renderer";
 import "./CustomNode.css";
-import { LeftCustomHandle, RightCustomHandle } from "./CustomHandle";
+import { RightCustomHandle } from "./CustomHandle";
 import { calculateHandlePosition } from "./constants";
 import { ReactComponent as SettingsIcon } from "../icons/settings.svg";
 import { ReactComponent as UpdateIcon } from "../icons/update.svg";
@@ -10,47 +9,11 @@ import { ReactComponent as ExpandIcon } from "../icons/expand.svg";
 import { Handle } from "react-flow-renderer";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
 
-const CustomNode = React.memo((props) => {
+const CustomObjectNode = React.memo((props) => {
   const { data, id } = props;
   const { handleCollapseExapnd } = useContext(ReactFlowContext);
-  const inputData = [...data?.assetData?.inhibits, ...data?.assetData?.inputs];
   return (
     <>
-      {/* <NodeResizer
-        style={controlStyle}
-        color="#000"
-        isVisible={selected}
-        minWidth={100}
-        minHeight={
-          Math.max(data?.input?.length, data?.output?.length) * HANDLE_SPACING +
-          HANDLE_SPACING
-        }
-      /> */}
-      {/* Input handles */}
-      {data?.isCollapsed ? (
-        <Handle
-          type="target"
-          position="left"
-          style={{
-            backgroundColor: "#fff",
-            borderRadius: 50,
-            borderColor: "orange",
-          }}
-          id={data?.tempIdInput}
-        />
-      ) : (
-        inputData?.map((input, idx) => {
-          return (
-            <LeftCustomHandle
-              handle={input}
-              key={input.id}
-              nodeId={id}
-              topPos={calculateHandlePosition(idx, inputData?.length)}
-            />
-          );
-        })
-      )}
-
       <div
         style={{
           display: "flex",
@@ -71,7 +34,7 @@ const CustomNode = React.memo((props) => {
         </div>
         {!data?.isCollapsed && <SettingsIcon />}
         <div
-          onClick={() => handleCollapseExapnd(id, !data?.isCollapsed, false)}
+          onClick={() => handleCollapseExapnd(id, !data?.isCollapsed, true)}
           style={{ cursor: "pointer" }}
         >
           {data?.isCollapsed ? <ExpandIcon /> : <CollapseIcon />}
@@ -120,4 +83,4 @@ const CustomNode = React.memo((props) => {
   );
 });
 
-export default CustomNode;
+export default CustomObjectNode;
