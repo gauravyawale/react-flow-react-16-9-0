@@ -63,6 +63,7 @@ const CustomObjectNode = React.memo((props) => {
             borderColor: "orange",
           }}
           id={data?.tempIdOutput}
+          isConnectable={false}
         />
       ) : (
         data?.assetData?.outputs?.map((output, idx) => {
@@ -75,6 +76,7 @@ const CustomObjectNode = React.memo((props) => {
                 idx,
                 data?.assetData?.outputs?.length
               )}
+              isObject={true}
             />
           );
         })

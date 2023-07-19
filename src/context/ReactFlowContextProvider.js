@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { createContext, useCallback, useRef, useState } from "react";
 import { ASSET_TYPES, HANDLE_SPACING } from "../components/constants";
 import {
   addEdge,
@@ -12,8 +6,7 @@ import {
   applyNodeChanges,
   updateEdge,
 } from "react-flow-renderer";
-import { getAssetType } from "../components/helper";
-import { nanoid } from "nanoid";
+import { getAssetType, isValidConnection } from "../components/helper";
 
 // Create the context
 export const ReactFlowContext = createContext();
@@ -152,6 +145,7 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes, getAvailablePosition]
   );
 
+  //handle connections of nodes and check for the data type, which should match
   const onConnect = useCallback(
     (params) => {
       const { source, target, sourceHandle, targetHandle } = params;
@@ -162,19 +156,30 @@ export const ReactFlowContextProvider = ({ children }) => {
       const targetNode = nodes.find((node) => node.id === targetNodeId);
 
       if (sourceNode && targetNode) {
-        const sourceEdge = sourceNode?.data?.output?.find(
+        const sourceEdge = sourceNode?.data?.assetData?.outputs?.find(
           (edge) => edge.id === sourceHandle
         );
-        const targetEdge = targetNode?.data?.input?.find(
+        const targetEdge = targetNode?.data?.assetData?.inputs?.find(
           (edge) => edge.id === targetHandle
         );
         const sourceDataType = sourceEdge?.dataType;
         const targetDataType = targetEdge?.dataType;
+        console.log(sourceDataType, targetDataType, "targetDataType");
 
-        if (sourceDataType === targetDataType) {
+        if (isValidConnection(sourceDataType, targetDataType)) {
           // Data types match, allow the connection
-          console.log(params, "params", edges);
-          setEdges((eds) => addEdge(params, eds));
+          setEdges((eds) =>
+            addEdge(
+              {
+                ...params,
+                data: {
+                  actualTargetId: params.targetHandle,
+                  actualSourceId: params.sourceHandle,
+                },
+              },
+              eds
+            )
+          );
         } else {
           // Data types don't match, prevent the connection
           console.log("Data types do not match. Connection not allowed.");
@@ -210,20 +215,52 @@ export const ReactFlowContextProvider = ({ children }) => {
       const targetNode = nodes.find((node) => node.id === newConnection.target);
 
       if (sourceNode && targetNode) {
-        const sourceEdge = sourceNode.data?.output?.find(
+        const sourceEdge = sourceNode.data?.assetData?.outputs?.find(
           (edge) => edge.id === newConnection.sourceHandle
         );
-        const targetEdge = targetNode.data?.input?.find(
+        const targetEdge = targetNode.data?.assetData?.inputs?.find(
           (edge) => edge.id === newConnection.targetHandle
         );
         const sourceDataType = sourceEdge?.dataType;
         const targetDataType = targetEdge?.dataType;
 
-        if (sourceDataType === targetDataType) {
+        if (isValidConnection(sourceDataType, targetDataType)) {
           // Data types match, update the edge
-          setEdges((eds) => updateEdge(oldEdge, newConnection, eds));
+          setEdges((eds) =>
+            updateEdge(
+              oldEdge,
+              {
+                ...newConnection,
+                data: {
+                  actualTargetId: newConnection.targetHandle,
+                  actualSourceId: newConnection.sourceHandle,
+                },
+              },
+              eds
+            )
+          );
           edgeUpdateSuccessful.current = true;
         } else {
+          //if the old input is triggered then update the input
+          let isinputTriggred = false;
+          const updatedNodes = nodes.map((node) => {
+            if (node.id === oldEdge.target) {
+              const newData = { ...node.data };
+              const updatedInputs = newData?.assetData?.inputs?.map((input) => {
+                if (input.id === oldEdge.targetHandle && input.isTriggered) {
+                  isinputTriggred = true;
+                  return { ...input, isTriggered: false };
+                }
+                return input;
+              });
+              newData.assetData.inputs = updatedInputs;
+              return { ...node, data: newData };
+            }
+            return node;
+          });
+          if (isinputTriggred) {
+            setNodes(updatedNodes);
+          }
           // Data types don't match, prevent the edge update
           console.log("Data types do not match. Edge update not allowed.");
           edgeUpdateSuccessful.current = false;
@@ -252,19 +289,11 @@ export const ReactFlowContextProvider = ({ children }) => {
       const updateEdgesWithAnimation = edges.map((edge) => {
         if (targetId === edge.targetHandle) {
           isConnected = true;
-          if (isTriggered) {
-            return {
-              ...edge,
-              animated: true,
-              style: { stroke: strokeColor, strokeWidth: 1 },
-            };
-          } else {
-            return {
-              ...edge,
-              animated: false,
-              style: { stroke: "", strokeWidth: 1 },
-            };
-          }
+          return {
+            ...edge,
+            animated: isTriggered ? true : false,
+            style: { stroke: isTriggered ? strokeColor : "", strokeWidth: 1 },
+          };
         } else {
           return edge;
         }
@@ -274,13 +303,13 @@ export const ReactFlowContextProvider = ({ children }) => {
         const updatedNodes = nodes.map((node) => {
           if (node.id === nodeId) {
             const newData = { ...node.data };
-            const updatedInputs = newData?.input.map((input) => {
+            const updatedInputs = newData?.assetData?.inputs?.map((input) => {
               if (input.id === targetId) {
                 return { ...input, isTriggered: isTriggered };
               }
               return input;
             });
-            newData.input = updatedInputs;
+            newData.assetData.inputs = updatedInputs;
             return { ...node, data: newData };
           }
           return node;
@@ -298,13 +327,13 @@ export const ReactFlowContextProvider = ({ children }) => {
       const updatedNodes = nodes.map((node) => {
         if (node.id === nodeId) {
           const newData = { ...node.data };
-          const updatedOutputs = newData?.output.map((output) => {
+          const updatedOutputs = newData?.assetData?.outputs.map((output) => {
             if (output.id === sourceId) {
               return { ...output, isPublished: isPublished };
             }
             return output;
           });
-          newData.output = updatedOutputs;
+          newData.assetData.outputs = updatedOutputs;
           return { ...node, data: newData };
         }
         return node;
@@ -372,33 +401,29 @@ export const ReactFlowContextProvider = ({ children }) => {
           if (nodeId === edge.target) {
             return {
               ...edge,
-              data: { ...edge.data, actualTragetId: edge.targetHandle },
               targetHandle: collapsedNode?.data?.tempIdInput,
             };
           } else if (nodeId === edge.source) {
             return {
               ...edge,
-              data: { ...edge.data, actualSourceId: edge.sourceHandle },
               sourceHandle: collapsedNode?.data?.tempIdOutput,
             };
           } else {
-            return { ...edge, data: edge.data };
+            return edge;
           }
         } else {
           if (nodeId === edge.target) {
             return {
               ...edge,
-              targetHandle: edge.data.actualTragetId,
-              data: edge.data,
+              targetHandle: edge.data.actualTargetId,
             };
           } else if (nodeId === edge.source) {
             return {
               ...edge,
               sourceHandle: edge.data.actualSourceId,
-              data: edge.data,
             };
           } else {
-            return { ...edge, data: edge.data };
+            return edge;
           }
         }
       });
@@ -429,6 +454,7 @@ export const ReactFlowContextProvider = ({ children }) => {
               tempIdInput: "ez09XAeCodVc5JOokUOis",
               label: asset?.assetName,
               isCollapsed: false,
+              isTriggered: false,
             },
             style: {
               border: "1px solid #000",
@@ -480,7 +506,8 @@ export const ReactFlowContextProvider = ({ children }) => {
             target: connection?.input?.asset?.nodeId,
             targetHandle: connection?.input?.circleData?.id,
             data: {
-              connection: connection,
+              actualTargetId: connection?.input?.circleData?.id,
+              actualSourceId: connection?.output?.circleData?.id,
             },
           };
         }

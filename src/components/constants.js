@@ -32,31 +32,42 @@ export const ASSET_TYPES = {
   FUNCTION_TYPE: "function",
 };
 
+export const DATA_TYPES = {
+  INTEGER: "integer",
+  STRING: "string",
+  NUMBER: "number",
+  BOOLEAN: "boolean",
+  ARRAY_INTEGER: "array_integer",
+  ARRAY_STRING: "array_string",
+  ARRAY_BOOLEAN: "array_boolean",
+  ARRAY_NUMBER: "array_number",
+};
+
 export const getDataType = (dataType) => {
   let dType;
   switch (dataType) {
-    case "integer":
+    case DATA_TYPES.INTEGER:
       dType = "int";
       break;
-    case "array_integer":
+    case DATA_TYPES.ARRAY_INTEGER:
       dType = "[int]";
       break;
-    case "boolean":
+    case DATA_TYPES.BOOLEAN:
       dType = "bool";
       break;
-    case "string":
+    case DATA_TYPES.STRING:
       dType = "str";
       break;
-    case "number":
+    case DATA_TYPES.NUMBER:
       dType = "num";
       break;
-    case "array_string":
+    case DATA_TYPES.ARRAY_STRING:
       dType = "[str]";
       break;
-    case "array_number":
+    case DATA_TYPES.ARRAY_NUMBER:
       dType = "[num]";
       break;
-    case "array_boolean":
+    case DATA_TYPES.ARRAY_BOOLEAN:
       dType = "[bool]";
       break;
     default:

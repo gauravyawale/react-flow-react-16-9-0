@@ -93,7 +93,7 @@ const LeftCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
   );
 });
 
-const RightCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
+const RightCustomHandle = React.memo(({ handle, topPos, nodeId, isObject }) => {
   const { name, dataType, id, isPublished, isAlarmOutput } = handle;
   const { handleAlarmTrigger, handleOutputPublish } =
     useContext(ReactFlowContext);
@@ -122,7 +122,7 @@ const RightCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
         )}
       </div>
       <div className="right-handle-container">
-        {!isAlarmOutput && (
+        {!isAlarmOutput && !isObject && (
           <div
             className="handle-publish-right"
             onClick={() => handleOutputPublish(nodeId, id, !isPublished)}
