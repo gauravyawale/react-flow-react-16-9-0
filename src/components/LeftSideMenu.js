@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./LeftSideMenu.css";
 import { nanoid } from "nanoid";
-import { HANDLE_SPACING, INHIBITS, getRandomDataType } from "./constants";
+import { HANDLE_SPACING, getRandomDataType } from "./constants";
 import { createNodes } from "./dumpNodes";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
+
+import ListItem from "./ListItem";
 
 const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
   const [inputCount, setInputCount] = useState(2);
@@ -23,19 +25,27 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
       localStorage.setItem("functionsList", JSON.stringify(list));
   }, [list]);
 
+  //on click of delete function
+
   const handleListItemDelete = (nodeId) => {
     const filteredListItem = list.filter((node) => node.id !== nodeId);
     setList(filteredListItem);
     handleDeleteNode(nodeId);
   };
 
+  //on click of Create function open the modal
+
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
 
+  //onClose of modal
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  //on click of save create a function with inputs and outputs provided
 
   const handleSaveModal = () => {
     const customInputs = [];
@@ -69,8 +79,7 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
     }
     const newNode = {
       id: nanoid(),
-      type: "customNode",
-
+      type: "customFunctionNode",
       data: {
         assetData: {
           inputs: customInputs,
@@ -80,7 +89,7 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
               name: "referenceValue",
               id: nanoid(),
               path: "",
-              dataType: "boolean",
+              dataType: "bool",
               connected: false,
               mappingDetails: [],
             },
@@ -88,7 +97,7 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
               name: "actualValue",
               id: nanoid(),
               path: "",
-              dataType: "boolean",
+              dataType: "bool",
               connected: false,
               mappingDetails: [],
             },
@@ -116,10 +125,12 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
     setOutputCount(2);
     handleCloseModal();
   };
-
+  //on click of add button, call the add node function
   const handleAddNode = (node, isDump) => {
     addNode(node, isDump);
   };
+
+  //on click of dump button, create functions dynamically
 
   const handleDumpNodes = () => {
     const nodesData = createNodes();
@@ -133,19 +144,13 @@ const LeftSideMenu = React.memo(({ setIsModalOpen, isModalOpen }) => {
       <button onClick={() => handleAddNode(list, true)}>Add</button>
       <ul>
         {list.map((node, index) => (
-          <li key={index}>
-            <div>
-              <span onClick={() => handleAddNode(node, false)}>
-                Function {index + 1}
-              </span>
-              <button
-                style={{ marginLeft: 8 }}
-                onClick={() => handleListItemDelete(node.id)}
-              >
-                Delete
-              </button>
-            </div>
-          </li>
+          <ListItem
+            node={node}
+            key={index}
+            index={index}
+            handleListItemDelete={handleListItemDelete}
+            handleAddNode={handleAddNode}
+          />
         ))}
       </ul>
       {isModalOpen && (

@@ -3,11 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { ReactFlowContextProvider } from "./context/ReactFlowContextProvider";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 ReactDOM.render(
   <React.StrictMode>
     <ReactFlowContextProvider>
-      <App />
+      <DndProvider backend={HTML5Backend}>
+        <App />
+      </DndProvider>
     </ReactFlowContextProvider>
   </React.StrictMode>,
   document.getElementById("root")

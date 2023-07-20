@@ -33,16 +33,24 @@ export const ReactFlowContextProvider = ({ children }) => {
   // }, [nodes, edges]);
 
   const onNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    (changes) => {
+      console.log("On Nodes Change");
+      return setNodes((nds) => applyNodeChanges(changes, nds));
+    },
     [setNodes]
   );
   const onEdgesChange = useCallback(
-    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    (changes) => {
+      console.log("On Edges Change");
+      return setEdges((eds) => applyEdgeChanges(changes, eds));
+    },
     [setEdges]
   );
 
+  //get available nodes positions
   const getAvailablePosition = useCallback(
     (x, y) => {
+      console.log("Get Available Position: ", "x-", x, ", y-", y);
       // Function to calculate available position for a new node
       const nodeSize = 145; // Adjust this value based on your node size
       const padding = 10; // Adjust this value based on desired padding
@@ -97,9 +105,10 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes]
   );
 
-  //on dragging node handle the overlap
+  //once the node dragging stops handle the overlap
   const onNodeDragStop = useCallback(
     (event, node) => {
+      console.log("On Node Dragging Stopped", event);
       const { x, y } = node.position;
       const nodeSize = 145; // Adjust this value based on your node size
       const padding = 10; // Adjust this value based on desired padding
@@ -145,9 +154,11 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes, getAvailablePosition]
   );
 
-  //handle connections of nodes and check for the data type, which should match
+  //on connecting the output and input, handle a connect by checking data type
   const onConnect = useCallback(
     (params) => {
+      console.log("On Connecting the edges/input/output pair");
+
       const { source, target, sourceHandle, targetHandle } = params;
       const sourceNodeId = source;
       const targetNodeId = target;
@@ -164,7 +175,6 @@ export const ReactFlowContextProvider = ({ children }) => {
         );
         const sourceDataType = sourceEdge?.dataType;
         const targetDataType = targetEdge?.dataType;
-        console.log(sourceDataType, targetDataType, "targetDataType");
 
         if (isValidConnection(sourceDataType, targetDataType)) {
           // Data types match, allow the connection
@@ -189,8 +199,10 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes, edges]
   );
 
+  //handle adding nodes to react flow components on dragging or selecting
   const addNode = useCallback(
     (newNode, isDumpData) => {
+      console.log("on adding node to the flow component");
       if (isDumpData) {
         setNodes((prevNodes) => [...newNode]);
       } else {
@@ -205,12 +217,17 @@ export const ReactFlowContextProvider = ({ children }) => {
     [setNodes, getAvailablePosition]
   );
 
+  // handle edge update when we select conencted edge and drag it out
   const onEdgeUpdateStart = useCallback(() => {
+    console.log("on selecting the edge to update the connection status");
     edgeUpdateSuccessful.current = false;
   }, []);
 
+  //handle the dragged edge update when it gets connected to another input
   const onEdgeUpdate = useCallback(
     (oldEdge, newConnection) => {
+      console.log("on updating the edge connection status");
+
       const sourceNode = nodes.find((node) => node.id === newConnection.source);
       const targetNode = nodes.find((node) => node.id === newConnection.target);
 
@@ -225,41 +242,46 @@ export const ReactFlowContextProvider = ({ children }) => {
         const targetDataType = targetEdge?.dataType;
 
         if (isValidConnection(sourceDataType, targetDataType)) {
-          // Data types match, update the edge
-          setEdges((eds) =>
-            updateEdge(
-              oldEdge,
-              {
-                ...newConnection,
-                data: {
-                  actualTargetId: newConnection.targetHandle,
-                  actualSourceId: newConnection.sourceHandle,
+          if (oldEdge.targetHandle !== newConnection.targetHandle) {
+            const updatedNodes = getNodeTriggerUpdate(oldEdge);
+            if (updatedNodes?.isinputTriggred) {
+              setNodes(updatedNodes.nodes);
+            }
+            setEdges((eds) =>
+              updateEdge(
+                {
+                  ...oldEdge,
+                  style: {
+                    stroke: "",
+                    strokeWidth: 1,
+                  },
+                  animated: false,
                 },
-              },
-              eds
-            )
-          );
+                {
+                  ...newConnection,
+                  style: {
+                    stroke: "",
+                    strokeWidth: 1,
+                  },
+                  animated: false,
+                  data: {
+                    actualTargetId: newConnection.targetHandle,
+                    actualSourceId: newConnection.sourceHandle,
+                  },
+                },
+                eds
+              )
+            );
+          }
+          // Data types match, update the edge
+
           edgeUpdateSuccessful.current = true;
         } else {
           //if the old input is triggered then update the input
-          let isinputTriggred = false;
-          const updatedNodes = nodes.map((node) => {
-            if (node.id === oldEdge.target) {
-              const newData = { ...node.data };
-              const updatedInputs = newData?.assetData?.inputs?.map((input) => {
-                if (input.id === oldEdge.targetHandle && input.isTriggered) {
-                  isinputTriggred = true;
-                  return { ...input, isTriggered: false };
-                }
-                return input;
-              });
-              newData.assetData.inputs = updatedInputs;
-              return { ...node, data: newData };
-            }
-            return node;
-          });
-          if (isinputTriggred) {
-            setNodes(updatedNodes);
+
+          const updatedNodes = getNodeTriggerUpdate(nodes, oldEdge);
+          if (updatedNodes?.isinputTriggred) {
+            setNodes(updatedNodes.nodes);
           }
           // Data types don't match, prevent the edge update
           console.log("Data types do not match. Edge update not allowed.");
@@ -269,22 +291,59 @@ export const ReactFlowContextProvider = ({ children }) => {
     },
     [nodes]
   );
+  //check if the node input is triggered, if it is then un trigger it
 
-  const onEdgeUpdateEnd = useCallback((oldEdge, newEdge) => {
-    if (!edgeUpdateSuccessful.current) {
-      // Data types don't match, remove the updated edge
-      setEdges((eds) => eds.filter((edge) => edge.id !== newEdge.id));
-    }
+  const getNodeTriggerUpdate = (oldEdge) => {
+    console.log("while updating the edge, check the trigger status");
+    let isinputTriggred = false;
+    const checkTriggerNode = nodes.map((node) => {
+      if (node.id === oldEdge.target) {
+        const newData = { ...node.data };
+        const updatedInputs = newData?.assetData?.inputs?.map((input) => {
+          if (input.id === oldEdge.targetHandle && input.isTriggered) {
+            isinputTriggred = true;
+            return { ...input, isTriggered: false };
+          }
+          return input;
+        });
+        newData.assetData.inputs = updatedInputs;
+        return { ...node, data: newData };
+      }
+      return node;
+    });
 
-    edgeUpdateSuccessful.current = true;
-  }, []);
+    return {
+      nodes: checkTriggerNode,
+      isinputTriggred,
+    };
+  };
 
+  // handle the case once edge is dropped
+  const onEdgeUpdateEnd = useCallback(
+    (oldEdge, newEdge) => {
+      console.log("on dropping the edges connection");
+      if (!edgeUpdateSuccessful.current) {
+        // Data types don't match, remove the updated edge
+        const updateNodeTrigger = getNodeTriggerUpdate(newEdge);
+        setNodes(updateNodeTrigger.nodes);
+        setEdges((eds) => eds.filter((edge) => edge.id !== newEdge.id));
+      }
+
+      edgeUpdateSuccessful.current = true;
+    },
+    [nodes, edges]
+  );
+
+  // handle deleting the node
   const handleDeleteNode = useCallback((nodeId) => {
+    console.log("on deleting the node from flow component", nodeId);
     setNodes((prevNodes) => prevNodes.filter((node) => node.id !== nodeId));
   }, []);
 
+  // handle input triggering
   const handleInputTrigger = useCallback(
     (nodeId, targetId, isTriggered, strokeColor) => {
+      console.log("on triggering the input trigger", isTriggered);
       let isConnected = false;
       const updateEdgesWithAnimation = edges.map((edge) => {
         if (targetId === edge.targetHandle) {
@@ -322,8 +381,10 @@ export const ReactFlowContextProvider = ({ children }) => {
     [edges, nodes]
   );
 
+  // handle output publishing
   const handleOutputPublish = useCallback(
     (nodeId, sourceId, isPublished) => {
+      console.log("on publishing the the output", isPublished);
       const updatedNodes = nodes.map((node) => {
         if (node.id === nodeId) {
           const newData = { ...node.data };
@@ -343,18 +404,20 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes]
   );
 
+  // handle alarm output publish
   const handleAlarmTrigger = useCallback(
     (nodeId, handleId, isAlarmOn) => {
+      console.log("on publishing the the alarm output", isAlarmOn);
       const updatedNodes = nodes.map((node) => {
         if (node.id === nodeId) {
           const newData = { ...node.data };
-          const updatedOutputs = newData?.output.map((output) => {
+          const updatedOutputs = newData?.assetData?.outputs?.map((output) => {
             if (output.id === handleId) {
-              return { ...output, isAlarmOn: isAlarmOn };
+              return { ...output, isPublished: isAlarmOn };
             }
             return output;
           });
-          newData.output = updatedOutputs;
+          newData.assetData.outputs = updatedOutputs;
           return { ...node, data: newData };
         }
         return node;
@@ -364,8 +427,14 @@ export const ReactFlowContextProvider = ({ children }) => {
     [nodes]
   );
 
+  //handle the node collapsing and exapnding
+
   const handleCollapseExapnd = useCallback(
     (nodeId, isCollapsed, isObject) => {
+      console.log(
+        "handle collapse and expand functionality: isCollapsed-",
+        isCollapsed
+      );
       let collapsedNode;
       const updatedNodes = nodes.map((node) => {
         if (node.id === nodeId) {
@@ -427,18 +496,19 @@ export const ReactFlowContextProvider = ({ children }) => {
           }
         }
       });
-      console.log(edges, "edges", updatedEdges);
       setNodes(updatedNodes);
       setEdges(updatedEdges);
     },
     [nodes, edges]
   );
 
-  //pre-feed the data in react flow graph
+  //pre-feed the data in react flow component
   const addAvailableModelData = useCallback(
     (modelData) => {
-      console.log("reached here model dat", modelData);
-
+      console.log(
+        "on adding the existing model to the flow component",
+        modelData
+      );
       const updateNodesModelData = modelData?.assetData?.map((asset) => {
         if (getAssetType(asset?.assetType) === ASSET_TYPES?.FUNCTION_TYPE) {
           const functionNodeHeight =
@@ -512,7 +582,6 @@ export const ReactFlowContextProvider = ({ children }) => {
           };
         }
       );
-      console.log("reached here edges", updateEdgesModelData);
       setEdges(updateEdgesModelData);
       setNodes(updateNodesModelData);
     },

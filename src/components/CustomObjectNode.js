@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./CustomNode.css";
 import { RightCustomHandle } from "./CustomHandle";
 import { calculateHandlePosition } from "./constants";
@@ -6,14 +6,31 @@ import { ReactComponent as SettingsIcon } from "../icons/settings.svg";
 import { ReactComponent as UpdateIcon } from "../icons/update.svg";
 import { ReactComponent as CollapseIcon } from "../icons/collapse.svg";
 import { ReactComponent as ExpandIcon } from "../icons/expand.svg";
+import { ReactComponent as CrossIcon } from "../icons/cross.svg";
 import { Handle } from "react-flow-renderer";
 import { ReactFlowContext } from "../context/ReactFlowContextProvider";
+import SettingsModal from "./SettingsModal";
 
 const CustomObjectNode = React.memo((props) => {
   const { data, id } = props;
-  const { handleCollapseExapnd } = useContext(ReactFlowContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { handleCollapseExapnd, handleDeleteNode } =
+    useContext(ReactFlowContext);
   return (
     <>
+      {props.selected && (
+        <div
+          onClick={() => handleDeleteNode(id)}
+          style={{
+            position: "absolute",
+            right: "-8px",
+            top: "-8px",
+            cursor: "pointer",
+          }}
+        >
+          <CrossIcon />
+        </div>
+      )}
       <div
         style={{
           display: "flex",
@@ -32,7 +49,14 @@ const CustomObjectNode = React.memo((props) => {
         >
           {data?.label}
         </div>
-        {!data?.isCollapsed && <SettingsIcon />}
+        {!data?.isCollapsed && (
+          <div
+            onClick={() => setIsModalOpen(true)} // Set the state to open the modal
+            style={{ cursor: "pointer" }}
+          >
+            <SettingsIcon />
+          </div>
+        )}
         <div
           onClick={() => handleCollapseExapnd(id, !data?.isCollapsed, true)}
           style={{ cursor: "pointer" }}
@@ -51,7 +75,6 @@ const CustomObjectNode = React.memo((props) => {
           <UpdateIcon />
         </div>
       )}
-
       {/* Output handle */}
       {data?.isCollapsed ? (
         <Handle
@@ -80,7 +103,8 @@ const CustomObjectNode = React.memo((props) => {
             />
           );
         })
-      )}
+      )}{" "}
+      {isModalOpen && <SettingsModal onClose={() => setIsModalOpen(false)} />}
     </>
   );
 });

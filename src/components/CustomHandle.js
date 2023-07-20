@@ -10,6 +10,7 @@ const LeftCustomHandle = React.memo(({ handle, topPos, nodeId }) => {
   const { name, defaultValue, dataType, id, isTriggered } = handle;
   const { handleInputTrigger } = useContext(ReactFlowContext);
 
+  //handle the input trigger when clicked
   const handleInputTriggerClick = () => {
     const strokeColor =
       (name === INHIBITS?.ACTUAL_VALUE || name === INHIBITS?.REFERENCE_VALUE) &&

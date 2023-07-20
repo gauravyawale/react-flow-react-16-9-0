@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import ReactFlowComponent from "./components/ReactFlowComponent";
 import "react-flow-renderer/dist/style.css";
 import "./App.css";
+import { DragDropContext } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

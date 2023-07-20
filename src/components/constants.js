@@ -1,5 +1,6 @@
 export const HANDLE_SPACING = 20;
 
+//get random data type while creating function
 export const getRandomDataType = () => {
   const dataTypes = [
     "integer",
@@ -21,6 +22,7 @@ export const INHIBITS = {
   ACTUAL_VALUE: "actualValue",
 };
 
+//handeling the handles position
 export const calculateHandlePosition = (handleIndex, totalHandles) => {
   const handleGapPercentage = 100 / (totalHandles + 1);
   const handlePositionPercentage = handleGapPercentage * (handleIndex + 1);
